@@ -39,7 +39,7 @@ export default function Login() {
     <main>
       <div className={style.loginBox}>
         <button onClick={() => login()} disabled={isAuthenticated}>
-          entrar com google
+          Entrar com Google
         </button>
         {errorMsg && <p>{errorMsg}</p>}
       </div>
