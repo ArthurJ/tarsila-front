@@ -23,21 +23,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <React.StrictMode>
-      <AuthProvider>
-        <LoaderProvider>
-          <DraftProvider>
-            <DialogProvider>
-              <html lang="pt-br" className={fontWorkSans.className}>
-                <body>
-                  <Header />
-                  {children}
-                </body>
-              </html>
-            </DialogProvider>
-          </DraftProvider>
-        </LoaderProvider>
-      </AuthProvider>
-    </React.StrictMode>
+    <html lang="pt-br" className={fontWorkSans.className}>
+      <body>
+        <AuthProvider>
+          <LoaderProvider>
+            <DraftProvider>
+              <DialogProvider>
+                <Header />
+                {children}
+              </DialogProvider>
+            </DraftProvider>
+          </LoaderProvider>
+        </AuthProvider>
+      </body>
+    </html>
   );
 }
