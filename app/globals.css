@@ -1,23 +1,27 @@
+@import "tailwindcss";
+
 :root {
-  --main-primary: #454633;
-  --main-secondary: #9c944e;
-  --main-tertiary: #40591b;
+  /* Tarsila Brand Colors */
+  --tarsila-olive-dark: #454633;
+  --tarsila-olive-light: #9c944e;
+  --tarsila-olive-green: #40591b;
+  --tarsila-sienna: #723a1e;
+  --tarsila-burnt-orange: #aa6735;
+  --tarsila-orange: #e58200;
+  --tarsila-coffee: #353026;
+  --tarsila-ivory: #fff7ee;
 
-  --variant-primary: #723a1e;
-  --variant-secondary: #aa6735;
-  --variant-tertiary: #e58200;
-
-  --dark: #353026;
-  --white: #fff7ee;
-
-  --background: var(--white);
-  --foreground: var(--main-tertiary);
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  /* Legacy CSS variables for backwards compatibility */
+  --main-primary: var(--tarsila-olive-dark);
+  --main-secondary: var(--tarsila-olive-light);
+  --main-tertiary: var(--tarsila-olive-green);
+  --variant-primary: var(--tarsila-sienna);
+  --variant-secondary: var(--tarsila-burnt-orange);
+  --variant-tertiary: var(--tarsila-orange);
+  --dark: var(--tarsila-coffee);
+  --white: var(--tarsila-ivory);
+  --background: var(--tarsila-ivory);
+  --foreground: var(--tarsila-olive-green);
 }
 
 body {
@@ -28,25 +32,9 @@ body {
   line-height: 18px;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  border: none;
-}
-
 a {
   color: inherit;
   text-decoration: none;
-}
-
-button {
-  color: var(--white);
-  background-color: var(--main-secondary);
-  border: none;
-  border-radius: 6px;
-  padding: 8px 40px;
-  cursor: pointer;
 }
 
 textarea:disabled,
@@ -56,23 +44,35 @@ button:disabled {
 }
 
 strong {
-  font-weight: bolder;
+  font-weight: 600;
 }
 
 .markdown {
   text-align: justify;
+  color: var(--tarsila-coffee);
 }
 
 .markdown h1 {
   line-height: 2em;
+  color: var(--tarsila-burnt-orange);
+  font-weight: 700;
 }
 
 .markdown h2 {
   line-height: 1.5em;
+  color: var(--tarsila-burnt-orange);
+  font-weight: 600;
+  font-style: italic;
+}
+
+.markdown h3 {
+  color: var(--tarsila-olive-dark);
+  font-weight: 600;
 }
 
 .markdown p {
   margin-bottom: 8px;
+  color: var(--tarsila-olive-dark);
 }
 
 .markdown :where(ul, ol) {
@@ -81,4 +81,36 @@ strong {
 
 .markdown :where(ul, ol) li {
   margin-bottom: 8px;
+} 
+
+/* 
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+button {
+  color: var(--white);
+  background-color: var(--main-secondary);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 40px;
+  cursor: pointer;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--main-primary);
+}
+  
+*/
