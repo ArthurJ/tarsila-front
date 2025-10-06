@@ -52,7 +52,6 @@ export default function Homepage() {
             </div>
           </div>
 
-          {/* Features Section */}
           {/* Pricing Section */}
           <div className="mb-20">
             <div className="max-w-2xl mx-auto text-center mb-12">
