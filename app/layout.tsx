@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { Work_Sans } from "next/font/google";
 import { AuthProvider } from "./contexts/AuthProvider";
+import { HistoryProvider } from "./contexts/HistoryProvider";
 import { LoaderProvider } from "./contexts/LoaderProvider";
 import { DraftProvider } from "./contexts/DraftProvider";
 import { DialogProvider } from "./contexts/DialogsProvider";

@@ -12,6 +12,13 @@ export type Message = {
   timestamp: string;
 };
 
+export type ChatId = string | null;
+
+export type ChatType = {
+  chat_id: ChatId;
+  title: string | null;
+}
+
 export interface RequestError {
   errorMsg: string;
 }
@@ -21,9 +28,14 @@ export interface Conversation {
   draft: string;
 }
 
-export async function firstLoad(
+export interface PastChats {
+  chats: ChatType[],
+  next_cursor: number
+}
+
+export async function startChat(
   user: string,
-  chat_id: number | null
+  chat_id: ChatId,
 ): Promise<Conversation | RequestError> {
   const path = "/v1/start-chat";
   const body = JSON.stringify({
@@ -55,9 +67,30 @@ export async function firstLoad(
   }
 }
 
+export async function getPastChats(
+  user: string | ""
+): Promise<PastChats| RequestError> {
+  const path = "/v1/past-chats?";
+  const params = new URLSearchParams({ cursor: '0', count: '5', user: user });
+  const body = JSON.stringify({ user });
+
+  try {
+    const resp = await fetch(url + path + params, { method: "POST", headers, body });
+    if (!resp.ok) {
+      // throw new Error(`HTTP error! status: ${resp.status}`);
+    }
+    const data: PastChats = (await resp.json()) as PastChats;
+
+    return data;
+  } catch (error) {
+    console.error(error);
+    return { errorMsg: error } as RequestError;
+  }
+}
+
 export async function sendMessage(
   user: string | "",
-  chat_id: number | null,
+  chat_id: ChatId,
   message: string,
   file_ids: Array<string>
 ): Promise<Conversation | RequestError> {
@@ -93,7 +126,7 @@ export async function sendMessage(
 
 export async function addFile(
   user: string | "",
-  chat_id: number | null,
+  chat_id: ChatId,
   files: Array<File>
 ): Promise<Array<string> | RequestError> {
   const path = "/v1/upload";
