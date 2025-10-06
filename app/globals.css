@@ -11,6 +11,45 @@
   --color-tarsila-coffee: #353026;
   --color-tarsila-ivory: #fff7ee;
 
+  /* Extended Palette */
+
+  --color-tarsila-olive-dark-50: #f5f4f0;
+  --color-tarsila-olive-dark-100: #e9e9de;
+  --color-tarsila-olive-dark-200: #d5d4c1;
+  --color-tarsila-olive-dark-300: #bbbb9b;
+  --color-tarsila-olive-dark-400: #a2a279;
+  --color-tarsila-olive-dark-500: #85865c;
+  --color-tarsila-olive-dark-600: #686947;
+  --color-tarsila-olive-dark-700: #515239;
+  --color-tarsila-olive-dark-800: #454633; /* Default Olive Dark */
+  --color-tarsila-olive-dark-900: #3a3b2c;
+  --color-tarsila-olive-dark-950: #1d1e15;
+
+  --color-tarsila-olive-light-50: #f7f6ee;
+  --color-tarsila-olive-light-100: #eeebd9;
+  --color-tarsila-olive-light-200: #ded8b8;
+  --color-tarsila-olive-light-300: #c8c08e;
+  --color-tarsila-olive-light-400: #b2aa69;
+  --color-tarsila-olive-light-500: #9c944e; /* Default Olive Light */
+  --color-tarsila-olive-light-600: #777239;
+  --color-tarsila-olive-light-700: #5c592f;
+  --color-tarsila-olive-light-800: #4b4929;
+  --color-tarsila-olive-light-900: #414026;
+  --color-tarsila-olive-light-950: #222211;
+
+  --color-tarsila-olive-green-50: #f7fbea;
+  --color-tarsila-olive-green-100: #ebf6d1;
+  --color-tarsila-olive-green-200: #d8efa7;
+  --color-tarsila-olive-green-300: #bee274;
+  --color-tarsila-olive-green-400: #a3d249;
+  --color-tarsila-olive-green-500: #85b82a;
+  --color-tarsila-olive-green-600: #66921e;
+  --color-tarsila-olive-green-700: #4e701b;
+  --color-tarsila-olive-green-800: #40591b; /* Default Olive Green */
+  --color-tarsila-olive-green-900: #374c1b;
+  --color-tarsila-olive-green-950: #1b290a;
+
+
   /* Font Family */
   --font-family-work-sans: "Work Sans", sans-serif;
 }
