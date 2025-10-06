@@ -1,31 +1,36 @@
 @import "tailwindcss";
 
-:root {
+@theme {
   /* Tarsila Brand Colors */
-  --tarsila-olive-dark: #454633;
-  --tarsila-olive-light: #9c944e;
-  --tarsila-olive-green: #40591b;
-  --tarsila-sienna: #723a1e;
-  --tarsila-burnt-orange: #aa6735;
-  --tarsila-orange: #e58200;
-  --tarsila-coffee: #353026;
-  --tarsila-ivory: #fff7ee;
+  --color-tarsila-olive-dark: #454633;
+  --color-tarsila-olive-light: #9c944e;
+  --color-tarsila-olive-green: #40591b;
+  --color-tarsila-sienna: #723a1e;
+  --color-tarsila-burnt-orange: #aa6735;
+  --color-tarsila-orange: #e58200;
+  --color-tarsila-coffee: #353026;
+  --color-tarsila-ivory: #fff7ee;
 
+  /* Font Family */
+  --font-family-work-sans: "Work Sans", sans-serif;
+}
+
+:root {
   /* Legacy CSS variables for backwards compatibility */
-  --main-primary: var(--tarsila-olive-dark);
-  --main-secondary: var(--tarsila-olive-light);
-  --main-tertiary: var(--tarsila-olive-green);
-  --variant-primary: var(--tarsila-sienna);
-  --variant-secondary: var(--tarsila-burnt-orange);
-  --variant-tertiary: var(--tarsila-orange);
-  --dark: var(--tarsila-coffee);
-  --white: var(--tarsila-ivory);
-  --background: var(--tarsila-ivory);
-  --foreground: var(--tarsila-olive-green);
+  --main-primary: var(--color-tarsila-olive-dark);
+  --main-secondary: var(--color-tarsila-olive-light);
+  --main-tertiary: var(--color-tarsila-olive-green);
+  --variant-primary: var(--color-tarsila-sienna);
+  --variant-secondary: var(--color-tarsila-burnt-orange);
+  --variant-tertiary: var(--color-tarsila-orange);
+  --dark: var(--color-tarsila-coffee);
+  --white: var(--color-tarsila-ivory);
+  --background: var(--color-tarsila-ivory);
+  --foreground: var(--color-tarsila-olive-green);
 }
 
 body {
-  font-family: "Work Sans", sans-serif;
+  font-family: var(--font-family-work-sans);
   font-size: 14px;
   line-height: 18px;
 }
@@ -34,6 +39,11 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+a:hover {
+  cursor: pointer;
+}
+
 
 textarea:disabled,
 button:disabled {
@@ -47,30 +57,30 @@ strong {
 
 .markdown {
   text-align: justify;
-  color: var(--tarsila-coffee);
+  color: var(--color-tarsila-coffee);
 }
 
 .markdown h1 {
   line-height: 2em;
-  color: var(--tarsila-burnt-orange);
+  color: var(--color-tarsila-burnt-orange);
   font-weight: 700;
 }
 
 .markdown h2 {
   line-height: 1.5em;
-  color: var(--tarsila-burnt-orange);
+  color: var(--color-tarsila-burnt-orange);
   font-weight: 600;
   font-style: italic;
 }
 
 .markdown h3 {
-  color: var(--tarsila-olive-dark);
+  color: var(--color-tarsila-olive-dark);
   font-weight: 600;
 }
 
 .markdown p {
   margin-bottom: 8px;
-  color: var(--tarsila-olive-dark);
+  color: var(--color-tarsila-olive-dark);
 }
 
 .markdown :where(ul, ol) {
