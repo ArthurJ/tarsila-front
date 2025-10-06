@@ -2,18 +2,42 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useLoader } from './contexts/LoaderProvider'
+import { useAuth } from './contexts/AuthProvider'
+import { useRouter } from 'next/navigation'
 import { Timestamp } from './components/Timestamp';
 import Button from './components/ui/Button';
 import { CheckCircle2 } from 'lucide-react';
 
 export default function Homepage() {
-  const { hideLoader } = useLoader();
+  const { push } = useRouter();
+  const { hideLoader, showLoader } = useLoader();
+  const { isAuthenticated, signIn } = useAuth();
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   useEffect(() => {
     hideLoader();
   }, [hideLoader]);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      push("/home");
+    }
+  }, [isAuthenticated, push]);
+
+  function handleLogin() {
+    showLoader();
+    if (!isAuthenticated) {
+      signIn()
+        .then(() => {})
+        .catch(() => {
+          setErrorMsg("Erro ao tentar logar.");
+          hideLoader();
+        })
+        .finally(() => {});
+    }
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-marfim">
@@ -46,9 +70,10 @@ export default function Homepage() {
             </p>
             
             <div className="mt-12">
-              <Link href="/login">
-                <Button size="lg">Entrar com Google</Button>
-              </Link>
+              <Button size="lg" onClick={handleLogin} disabled={isAuthenticated}>
+                Entrar com Google
+              </Button>
+              {errorMsg && <p className="text-red-600 mt-4">{errorMsg}</p>}
             </div>
           </div>
 
@@ -88,6 +113,8 @@ export default function Homepage() {
                   '1 guia de orientação',
                 ]}
                 note="Valor à vista pode ser dividido entre até 5 usuários (R$ 89,80/cada)"
+                onLogin={handleLogin}
+                isAuthenticated={isAuthenticated}
               />
 
               {/* Plano Portfólio */}
@@ -108,6 +135,8 @@ export default function Homepage() {
                 note="Valor à vista pode ser dividido entre até 5 usuários (R$ 242,46/cada)"
                 highlighted
                 badge="Popular"
+                onLogin={handleLogin}
+                isAuthenticated={isAuthenticated}
               />
 
               {/* Plano Trupe */}
@@ -127,6 +156,8 @@ export default function Homepage() {
                   'Suporte humanizado por projeto',
                 ]}
                 note="Valor à vista pode ser dividido entre até 5 usuários (R$ 349/cada)"
+                onLogin={handleLogin}
+                isAuthenticated={isAuthenticated}
               />
             </div>
           </div>
@@ -141,9 +172,10 @@ export default function Homepage() {
               Comece a criar projetos culturais de forma colaborativa hoje mesmo.
             </p>
             <div>
-              <Link href="/login">
-                <Button size="lg">Entrar com Google</Button>
-              </Link>
+              <Button size="lg" onClick={handleLogin} disabled={isAuthenticated}>
+                Entrar com Google
+              </Button>
+              {errorMsg && <p className="text-red-600 mt-4">{errorMsg}</p>}
             </div>
           </div>
         </div>
@@ -198,6 +230,8 @@ interface PricingCardProps {
   note: string
   highlighted?: boolean
   badge?: string
+  onLogin: () => void
+  isAuthenticated: boolean
 }
 
 function PricingCard({
@@ -210,6 +244,8 @@ function PricingCard({
   note,
   highlighted = false,
   badge,
+  onLogin,
+  isAuthenticated,
 }: PricingCardProps) {
   return (
     <div
@@ -265,15 +301,15 @@ function PricingCard({
         </p>
       </div>
 
-      <Link href="/login" className="block">
-        <Button 
-          variant={highlighted ? "primary" : "outline"}
-          size="lg"
-          className="w-full"
-        >
-          Começar Agora
-        </Button>
-      </Link>
+      <Button 
+        variant={highlighted ? "primary" : "outline"}
+        size="lg"
+        className="w-full"
+        onClick={onLogin}
+        disabled={isAuthenticated}
+      >
+        Começar Agora
+      </Button>
     </div>
   )
 }
