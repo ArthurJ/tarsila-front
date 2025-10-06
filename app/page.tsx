@@ -178,7 +178,7 @@ export default function Homepage() {
       <footer className="border-t border-tarsila-olive-light/20 bg-tarsila-olive-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
           <div className="text-center">
-            <p className="text-sm text-tarsila-ivory">
+            <p className="text-sm text-white">
               © <Timestamp /> Tarsila. Democratizando o acesso à elaboração de projetos culturais.
             </p>
           </div>
@@ -213,7 +213,7 @@ function PricingCard({
 }: PricingCardProps) {
   return (
     <div
-      className={`rounded-2xl p-8 relative ${
+      className={`rounded-2xl p-8 relative flex flex-col ${
         highlighted
           ? 'bg-gradient-to-br from-tarsila-burnt-orange/10 to-tarsila-olive-light/10 border-2 border-tarsila-burnt-orange shadow-lg'
           : 'bg-white border border-tarsila-olive-light/30 shadow-sm'
@@ -248,10 +248,10 @@ function PricingCard({
         {description}
       </p>
 
-      <ul className="space-y-3 mb-6">
+      <ul className="space-y-3 mb-6 flex-grow">
         {features.map((feature, index) => (
           <li key={index} className="flex items-start">
-            <CheckCircle2 className="h-5 w-5 text-tarsila-olive-light mr-3 flex-shrink-0 mt-0.5" />
+            <CheckCircle2 className="h-5 w-5 text-tarsila-olive-green-600 mr-3 flex-shrink-0 mt-0.5" />
             <span className="text-sm text-tarsila-olive-dark">
               {feature}
             </span>
@@ -259,8 +259,8 @@ function PricingCard({
         ))}
       </ul>
 
-      <div className="mb-6">
-        <p className="text-xs text-tarsila-olive-dark italic bg-tarsila-ivory/50 p-3 rounded-lg">
+      <div className="mb-6 mt-auto">
+        <p className="text-xs text-tarsila-olive-dark italic bg-tarsila-olive-dark-200 p-3 rounded-lg">
           {note}
         </p>
       </div>
