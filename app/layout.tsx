@@ -24,18 +24,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br" className={fontWorkSans.className}>
+     <html lang="pt-br" className={fontWorkSans.className}>
       <body>
         <AuthProvider>
+        <HistoryProvider>
           <LoaderProvider>
             <DraftProvider>
               <DialogProvider>
-                <Header />
-                {children}
+                <html lang="pt-br" className={fontWorkSans.className}>
+                  <body>
+                    {children}
+                  </body>
+                </html>
               </DialogProvider>
             </DraftProvider>
           </LoaderProvider>
-        </AuthProvider>
+        </HistoryProvider>
+      </AuthProvider>
       </body>
     </html>
   );
