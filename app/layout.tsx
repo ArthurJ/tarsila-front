@@ -31,11 +31,7 @@ export default function RootLayout({
           <LoaderProvider>
             <DraftProvider>
               <DialogProvider>
-                <html lang="pt-br" className={fontWorkSans.className}>
-                  <body>
-                    {children}
-                  </body>
-                </html>
+                {children}
               </DialogProvider>
             </DraftProvider>
           </LoaderProvider>
