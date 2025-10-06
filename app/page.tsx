@@ -16,7 +16,7 @@ export default function Homepage() {
   }, [hideLoader]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-tarsila-ivory">
+    <div className="min-h-screen flex flex-col bg-marfim">
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
           {/* Hero Section */}
@@ -32,14 +32,14 @@ export default function Homepage() {
               />
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-tarsila-coffee tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-marrom-carvao tracking-tight">
               A elaboração de projetos <br className="hidden sm:block" />
-              <span className="text-tarsila-burnt-orange">
+              <span className="text-laranja-queimado">
                 em um novo patamar
               </span>
             </h1>
             
-            <p className="mt-8 max-w-2xl mx-auto text-lg sm:text-xl text-tarsila-olive-dark leading-relaxed">
+            <p className="mt-8 max-w-2xl mx-auto text-lg sm:text-xl text-verde-oliva-escuro leading-relaxed">
               Acreditamos na cocriação como a melhor forma de promover a inclusão de 
               empreendedores culturais. Cada um se beneficia do todo, ao mesmo tempo 
               em que oferece a sua contribuição.
@@ -55,10 +55,10 @@ export default function Homepage() {
           {/* Pricing Section */}
           <div className="mb-20">
             <div className="max-w-2xl mx-auto text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-tarsila-burnt-orange mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-laranja-queimado mb-4">
                 Planos Tarsila
               </h2>
-              <p className="text-lg text-tarsila-olive-dark">
+              <p className="text-lg text-verde-oliva-escuro">
                 Escolha o plano ideal para transformar suas ideias em projetos culturais
               </p>
             </div>
@@ -132,11 +132,11 @@ export default function Homepage() {
           </div>
             
           {/* CTA Section */}
-          <div className="text-center bg-gradient-to-r from-tarsila-olive-light/10 to-tarsila-burnt-orange/10 rounded-3xl p-12">
-            <h2 className="text-3xl font-bold text-tarsila-coffee mb-4">
+          <div className="text-center bg-gradient-to-r from--verde-oliva-claro/10 to--laranja-queimado/10 rounded-3xl p-12">
+            <h2 className="text-3xl font-bold text-marrom-carvao mb-4">
               Vamos transformar suas ideias em projetos?
             </h2>
-            <p className="text-tarsila-olive-dark mb-8 max-w-2xl mx-auto">
+            <p className="text-verde-oliva-escuro mb-8 max-w-2xl mx-auto">
               Amplie, diversifique e fortaleça sua comunidade com a Tarsila. 
               Comece a criar projetos culturais de forma colaborativa hoje mesmo.
             </p>
@@ -150,23 +150,23 @@ export default function Homepage() {
 
         {/* Features Section */}
         {/* <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-tarsila-burnt-orange mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-laranja-queimado mb-6">
             Tecnologia a serviço da colaboração
           </h2>
           <div className="space-y-6">
-            <p className="mt-8 max-w-2xl mx-auto text-md sm:text-lg text-tarsila-olive-dark leading-relaxed">
+            <p className="mt-8 max-w-2xl mx-auto text-md sm:text-lg text-verde-oliva-escuro leading-relaxed">
               Tarsila te ajuda a colocar em palavras o trabalho que você ou o seu 
               grupo já realizam ou querem realizar. O resultado é a geração de um 
               pré-projeto com <strong>objetivo</strong>, <strong>justificativa</strong> e 
               sugestão de <strong>orçamento</strong>, concebido a partir das melhores práticas.
             </p>
-            <p className="mt-8 max-w-2xl mx-auto text-md sm:text-lg text-tarsila-olive-dark leading-relaxed">
+            <p className="mt-8 max-w-2xl mx-auto text-md sm:text-lg text-verde-oliva-escuro leading-relaxed">
               As ferramentas de <strong>LLM (Large Language Model)</strong> utilizadas pela CocrIA 
               são treinadas constantemente sobre os termos mais prováveis empregados 
               em cada tipo de projeto e, a partir disto, produzem um texto-base 
               próprio ao qual você poderá acrescentar as suas próprias palavras.
             </p>
-            <p className="mt-8 max-w-2xl mx-auto text-md sm:text-lg text-tarsila-olive-dark leading-relaxed">
+            <p className="mt-8 max-w-2xl mx-auto text-md sm:text-lg text-verde-oliva-escuro leading-relaxed">
               A Tarsila surgiu para democratizar o acesso à elaboração de projetos, 
               com o uso de tecnologias generativas de ponta.
             </p>
@@ -175,7 +175,7 @@ export default function Homepage() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-tarsila-olive-light/20 bg-tarsila-olive-dark">
+      <footer className="border-t border--verde-oliva-claro/20 bg-verde-oliva-escuro">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
           <div className="text-center">
             <p className="text-sm text-white">
@@ -215,44 +215,44 @@ function PricingCard({
     <div
       className={`rounded-2xl p-8 relative flex flex-col ${
         highlighted
-          ? 'bg-gradient-to-br from-tarsila-burnt-orange/10 to-tarsila-olive-light/10 border-2 border-tarsila-burnt-orange shadow-lg'
-          : 'bg-white border border-tarsila-olive-light/30 shadow-sm'
+          ? 'bg-gradient-to-br from--laranja-queimado/10 to--verde-oliva-claro/10 border-2 border--laranja-queimado shadow-lg'
+          : 'bg-white border border--verde-oliva-claro/30 shadow-sm'
       }`}
     >
       {badge && (
-        <div className="absolute -top-3 -right-3 bg-tarsila-burnt-orange text-tarsila-ivory text-xs font-bold px-3 py-1 rounded-full">
+        <div className="absolute -top-3 -right-3 bg-laranja-queimado text-marfim text-xs font-bold px-3 py-1 rounded-full">
           {badge}
         </div>
       )}
       
       <div className="text-center mb-6">
-        <h3 className="text-2xl font-bold text-tarsila-coffee mb-1">{title}</h3>
+        <h3 className="text-2xl font-bold text-marrom-carvao mb-1">{title}</h3>
         {subtitle && (
-          <p className="text-sm text-tarsila-olive-dark italic">{subtitle}</p>
+          <p className="text-sm text-verde-oliva-escuro italic">{subtitle}</p>
         )}
       </div>
 
       <div className="text-center mb-6">
-        <div className="text-3xl font-bold text-tarsila-sienna mb-1">
+        <div className="text-3xl font-bold text-marrom-siena mb-1">
           {price}
         </div>
-        <div className="text-sm text-tarsila-olive-dark">
+        <div className="text-sm text-verde-oliva-escuro">
           à vista
         </div>
-        <div className="text-xs text-tarsila-olive-dark mt-1">
+        <div className="text-xs text-verde-oliva-escuro mt-1">
           ou {installments}
         </div>
       </div>
 
-      <p className="text-center text-tarsila-coffee font-medium mb-6 pb-6 border-b border-tarsila-olive-light/30">
+      <p className="text-center text-marrom-carvao font-medium mb-6 pb-6 border-b border--verde-oliva-claro/30">
         {description}
       </p>
 
       <ul className="space-y-3 mb-6 flex-grow">
         {features.map((feature, index) => (
           <li key={index} className="flex items-start">
-            <CheckCircle2 className="h-5 w-5 text-tarsila-olive-green-600 mr-3 flex-shrink-0 mt-0.5" />
-            <span className="text-sm text-tarsila-olive-dark">
+            <CheckCircle2 className="h-5 w-5 text-verde-oliva-600 mr-3 flex-shrink-0 mt-0.5" />
+            <span className="text-sm text-verde-oliva-escuro">
               {feature}
             </span>
           </li>
@@ -260,7 +260,7 @@ function PricingCard({
       </ul>
 
       <div className="mb-6 mt-auto">
-        <p className="text-xs text-tarsila-olive-dark italic bg-tarsila-olive-dark-200 p-3 rounded-lg">
+        <p className="text-xs text-verde-oliva-escuro italic bg-verde-oliva-escuro-200 p-3 rounded-lg">
           {note}
         </p>
       </div>

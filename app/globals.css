@@ -1,53 +1,53 @@
 @import "tailwindcss";
 
 @theme {
-  /* Tarsila Brand Colors */
-  --color-tarsila-olive-dark: #454633;
-  --color-tarsila-olive-light: #9c944e;
-  --color-tarsila-olive-green: #40591b;
-  --color-tarsila-sienna: #723a1e;
-  --color-tarsila-burnt-orange: #aa6735;
-  --color-tarsila-orange: #e58200;
-  --color-tarsila-coffee: #353026;
-  --color-tarsila-ivory: #fff7ee;
+  /* Tarsila Cores da Marca */
+  --color-verde-oliva-escuro: #454633;
+  --color-verde-oliva-claro: #9c944e;
+  --color-verde-oliva: #40591b;
+  --color-marrom-carvao: #353026;
+  --color-marrom-siena: #723a1e;
+  --color-laranja-queimado: #aa6735;
+  --color-laranja: #e58200;
+  --color-marfim: #fff7ee;
 
-  /* Extended Palette */
+  /* Paleta Extendida */
 
-  --color-tarsila-olive-dark-50: #f5f4f0;
-  --color-tarsila-olive-dark-100: #e9e9de;
-  --color-tarsila-olive-dark-200: #d5d4c1;
-  --color-tarsila-olive-dark-300: #bbbb9b;
-  --color-tarsila-olive-dark-400: #a2a279;
-  --color-tarsila-olive-dark-500: #85865c;
-  --color-tarsila-olive-dark-600: #686947;
-  --color-tarsila-olive-dark-700: #515239;
-  --color-tarsila-olive-dark-800: #454633; /* Default Olive Dark */
-  --color-tarsila-olive-dark-900: #3a3b2c;
-  --color-tarsila-olive-dark-950: #1d1e15;
+  --color-verde-oliva-escuro-50: #f5f4f0;
+  --color-verde-oliva-escuro-100: #e9e9de;
+  --color-verde-oliva-escuro-200: #d5d4c1;
+  --color-verde-oliva-escuro-300: #bbbb9b;
+  --color-verde-oliva-escuro-400: #a2a279;
+  --color-verde-oliva-escuro-500: #85865c;
+  --color-verde-oliva-escuro-600: #686947;
+  --color-verde-oliva-escuro-700: #515239;
+  --color-verde-oliva-escuro-800: #454633; /* Oliva Escuro */
+  --color-verde-oliva-escuro-900: #3a3b2c;
+  --color-verde-oliva-escuro-950: #1d1e15;
 
-  --color-tarsila-olive-light-50: #f7f6ee;
-  --color-tarsila-olive-light-100: #eeebd9;
-  --color-tarsila-olive-light-200: #ded8b8;
-  --color-tarsila-olive-light-300: #c8c08e;
-  --color-tarsila-olive-light-400: #b2aa69;
-  --color-tarsila-olive-light-500: #9c944e; /* Default Olive Light */
-  --color-tarsila-olive-light-600: #777239;
-  --color-tarsila-olive-light-700: #5c592f;
-  --color-tarsila-olive-light-800: #4b4929;
-  --color-tarsila-olive-light-900: #414026;
-  --color-tarsila-olive-light-950: #222211;
+  --color-verde-oliva-claro-50: #f7f6ee;
+  --color-verde-oliva-claro-100: #eeebd9;
+  --color-verde-oliva-claro-200: #ded8b8;
+  --color-verde-oliva-claro-300: #c8c08e;
+  --color-verde-oliva-claro-400: #b2aa69;
+  --color-verde-oliva-claro-500: #9c944e; /* Oliva Claro */
+  --color-verde-oliva-claro-600: #777239;
+  --color-verde-oliva-claro-700: #5c592f;
+  --color-verde-oliva-claro-800: #4b4929;
+  --color-verde-oliva-claro-900: #414026;
+  --color-verde-oliva-claro-950: #222211;
 
-  --color-tarsila-olive-green-50: #f7fbea;
-  --color-tarsila-olive-green-100: #ebf6d1;
-  --color-tarsila-olive-green-200: #d8efa7;
-  --color-tarsila-olive-green-300: #bee274;
-  --color-tarsila-olive-green-400: #a3d249;
-  --color-tarsila-olive-green-500: #85b82a;
-  --color-tarsila-olive-green-600: #66921e;
-  --color-tarsila-olive-green-700: #4e701b;
-  --color-tarsila-olive-green-800: #40591b; /* Default Olive Green */
-  --color-tarsila-olive-green-900: #374c1b;
-  --color-tarsila-olive-green-950: #1b290a;
+  --color-verde-oliva-50: #f7fbea;
+  --color-verde-oliva-100: #ebf6d1;
+  --color-verde-oliva-200: #d8efa7;
+  --color-verde-oliva-300: #bee274;
+  --color-verde-oliva-400: #a3d249;
+  --color-verde-oliva-500: #85b82a;
+  --color-verde-oliva-600: #66921e;
+  --color-verde-oliva-700: #4e701b;
+  --color-verde-oliva-800: #40591b; /* Verde Oliva */
+  --color-verde-oliva-900: #374c1b;
+  --color-verde-oliva-950: #1b290a;
 
 
   /* Font Family */
@@ -55,17 +55,19 @@
 }
 
 :root {
-  /* Legacy CSS variables for backwards compatibility */
-  --main-primary: var(--color-tarsila-olive-dark);
-  --main-secondary: var(--color-tarsila-olive-light);
-  --main-tertiary: var(--color-tarsila-olive-green);
-  --variant-primary: var(--color-tarsila-sienna);
-  --variant-secondary: var(--color-tarsila-burnt-orange);
-  --variant-tertiary: var(--color-tarsila-orange);
-  --dark: var(--color-tarsila-coffee);
-  --white: var(--color-tarsila-ivory);
-  --background: var(--color-tarsila-ivory);
-  --foreground: var(--color-tarsila-olive-green);
+  --main-primary: var(--verde-oliva-escuro);
+  --main-secondary: var(--verde-oliva-claro);
+  --main-tertiary: var(--verde-oliva);
+
+  --variant-primary: var(--marrom-siena);
+  --variant-secondary: var(--laranja-queimado);
+  --variant-tertiary: var(--laranja);
+
+  --dark: var(--marrom-carvao);
+  --white: var(--marfim);
+
+  --background: var(--white);
+  --foreground: var(--main-tertiary);
 }
 
 body {
@@ -83,7 +85,6 @@ a:hover {
   cursor: pointer;
 }
 
-
 textarea:disabled,
 button:disabled {
   cursor: progress;
@@ -96,30 +97,30 @@ strong {
 
 .markdown {
   text-align: justify;
-  color: var(--color-tarsila-coffee);
+  color: var(--color-marrom-carvao);
 }
 
 .markdown h1 {
   line-height: 2em;
-  color: var(--color-tarsila-burnt-orange);
+  color: var(--color-laranja-queimado);
   font-weight: 700;
 }
 
 .markdown h2 {
   line-height: 1.5em;
-  color: var(--color-tarsila-burnt-orange);
+  color: var(--color-laranja-queimado);
   font-weight: 600;
   font-style: italic;
 }
 
 .markdown h3 {
-  color: var(--color-tarsila-olive-dark);
+  color: var(--color-verde-oliva-escuro);
   font-weight: 600;
 }
 
 .markdown p {
   margin-bottom: 8px;
-  color: var(--color-tarsila-olive-dark);
+  color: var(--color-verde-oliva-escuro);
 }
 
 .markdown :where(ul, ol) {

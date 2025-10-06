@@ -21,13 +21,13 @@ export default function Button({
   
   const variants = {
     primary:
-      'bg-tarsila-olive-light text-white hover:bg-tarsila-olive-light-600 focus-visible:ring-tarsila-olive-dark',
+      'bg-verde-oliva-claro text-white hover:bg-verde-oliva-claro-600 focus-visible:ring--verde-oliva-escuro',
     secondary:
-      'bg-tarsila-sienna text-white hover:bg-tarsila-burnt-orange focus-visible:ring-tarsila-sienna',
+      'bg-marrom-siena text-white hover:bg-laranja-queimado focus-visible:ring--marrom-siena',
     outline:
-      'border border-tarsila-olive-light-600 bg-transparent text-tarsila-olive-light-600 hover:bg-tarsila-olive-dark-50 focus-visible:ring-tarsila-olive-dark',
+      'border border--verde-oliva-claro-600 bg-transparent text-verde-oliva-claro-600 hover:bg-verde-oliva-escuro-50 focus-visible:ring--verde-oliva-escuro',
     ghost:
-      'bg-transparent text-tarsila-olive-dark hover:bg-tarsila-olive-light/10 focus-visible:ring-tarsila-olive-dark',
+      'bg-transparent text-verde-oliva-escuro hover:bg-verde-oliva-claro/10 focus-visible:ring--verde-oliva-escuro',
     danger: 
       'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500',
   }
