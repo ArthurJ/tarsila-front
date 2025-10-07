@@ -21,13 +21,13 @@ export default function Button({
   
   const variants = {
     primary:
-      'bg-verde-oliva-claro text-white hover:bg-verde-oliva-claro-600 focus-visible:ring--verde-oliva-escuro',
+      'bg-verde-oliva-claro text-white hover:bg-verde-oliva-claro-600 focus-visible:ring-verde-oliva-escuro',
     secondary:
-      'bg-marrom-siena text-white hover:bg-laranja-queimado focus-visible:ring--marrom-siena',
+      'bg-marrom-siena text-white hover:bg-laranja-queimado focus-visible:ring-marrom-siena',
     outline:
-      'border border--verde-oliva-claro-600 bg-transparent text-verde-oliva-claro-600 hover:bg-verde-oliva-escuro-50 focus-visible:ring--verde-oliva-escuro',
+      'border border-verde-oliva-claro-600 bg-transparent text-verde-oliva-claro-600 hover:bg-verde-oliva-escuro-50 focus-visible:ring-verde-oliva-escuro',
     ghost:
-      'bg-transparent text-verde-oliva-escuro hover:bg-verde-oliva-claro/10 focus-visible:ring--verde-oliva-escuro',
+      'bg-transparent text-verde-oliva-escuro hover:bg-verde-oliva-claro/10 focus-visible:ring-verde-oliva-escuro',
     danger: 
       'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500',
   }

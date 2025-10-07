@@ -161,7 +161,7 @@ export default function Homepage() {
           </div>
             
           {/* CTA Section */}
-          <div className="text-center bg-gradient-to-r from--verde-oliva-claro/10 to--laranja-queimado/10 rounded-3xl p-12">
+          <div className="text-center bg-gradient-to-r from-verde-oliva-claro/10 to-laranja-queimado/10 rounded-3xl p-12">
             <h2 className="text-3xl font-bold text-marrom-carvao mb-4">
               Vamos transformar suas ideias em projetos?
             </h2>
@@ -205,7 +205,7 @@ export default function Homepage() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border--verde-oliva-claro/20 bg-verde-oliva-escuro">
+      <footer className="border-t border-verde-oliva-claro/20 bg-verde-oliva-escuro">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
           <div className="text-center">
             <p className="text-sm text-white">
@@ -249,8 +249,8 @@ function PricingCard({
     <div
       className={`rounded-2xl p-8 relative flex flex-col ${
         highlighted
-          ? 'bg-gradient-to-br from--laranja-queimado/10 to--verde-oliva-claro/10 border-2 border--laranja-queimado shadow-lg'
-          : 'bg-white border border--verde-oliva-claro/30 shadow-sm'
+          ? 'bg-gradient-to-br from-laranja-queimado/10 to-verde-oliva-claro/10 border-2 border-laranja-queimado shadow-lg'
+          : 'bg-white border border-verde-oliva-claro/30 shadow-sm'
       }`}
     >
       {badge && (
@@ -278,7 +278,7 @@ function PricingCard({
         </div>
       </div>
 
-      <p className="text-center text-marrom-carvao font-medium mb-6 pb-6 border-b border--verde-oliva-claro/30">
+      <p className="text-center text-marrom-carvao font-medium mb-6 pb-6 border-b border-verde-oliva-claro/30">
         {description}
       </p>
 
