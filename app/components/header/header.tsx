@@ -2,11 +2,11 @@
 
 import { useAuth } from "@/app/contexts/AuthProvider";
 import { useLoader } from "@/app/contexts/LoaderProvider";
-import style from "./header.module.css";
 import { useState } from "react";
 import MenuButton from "../menu-button/menu-button";
 import NavMenu from "../nav-menu/nav-menu";
 import { useHistory } from "@/app/contexts/HistoryProvider";
+import Button from "../ui/Button";
 
 export default function Header() {
   const { isAuthenticated, currentUser, logOut } = useAuth();
@@ -25,8 +25,8 @@ export default function Header() {
 
   return (
     isAuthenticated && (
-      <header className={style.header}>
-        <div className={style.navContainer}>
+      <header className="text-right p-4 bg-verde-oliva-escuro flex items-start justify-between h-16 z-[999]">
+        <div className="flex flex-col items-start bg-marrom-carvao rounded-md z-[99999]">
           { chatsList.length > 0 
             && <>
               <MenuButton onClick={handleMenu} />
@@ -35,10 +35,14 @@ export default function Header() {
           }
         </div>
         <div>
-          <div className={style.userName}>
+          <div className="inline-block text-marfim mr-4">
             {currentUser?.displayName}
           </div>
-          <button onClick={() => leave()}>sair</button>
+          <Button 
+            onClick={() => leave()}
+          >
+            Sair
+          </Button>
         </div>
       </header>
     )

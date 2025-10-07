@@ -95,7 +95,7 @@ strong {
   font-weight: 600;
 }
 
-.markdown {
+/* .markdown {
   text-align: justify;
   color: var(--color-marrom-carvao);
 }
@@ -129,7 +129,7 @@ strong {
 
 .markdown :where(ul, ol) li {
   margin-bottom: 8px;
-} 
+}  */
 
 /* 
 html,

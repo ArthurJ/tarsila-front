@@ -2,14 +2,13 @@
 
 import { ChatId, ChatType, Conversation, startChat } from "@/app/services/services";
 import { useHistory } from "@/app/contexts/HistoryProvider";
-import style from "./nav-menu.module.css";
 import { useAuth } from "@/app/contexts/AuthProvider";
 import { useDialog } from "@/app/contexts/DialogsProvider";
 
 export default function NavMenu() {
   const { chatsList, updateChatId } = useHistory();
   const { currentUser } = useAuth()
-    const { setDialogs } = useDialog();
+  const { setDialogs } = useDialog();
 
   function getItemLabel(menuItem: ChatType) {
     if (!menuItem.title && menuItem.chat_id) {
@@ -21,7 +20,7 @@ export default function NavMenu() {
         day: "numeric",
         hour: "numeric",
         minute: "numeric"
-    })
+      })
     }
     return menuItem.title;
   };
@@ -37,10 +36,14 @@ export default function NavMenu() {
   }
 
   return (
-    <ul className={style.container} >
+    <ul className="list-none w-max z-[999]">
       {
         chatsList.map(((item, i) => (
-          <li key={i} className={style.item} onClick={() => loadChat(item.chat_id)}>
+          <li 
+            key={i} 
+            className="text-left py-4 px-8 text-marfim hover:bg-verde-oliva-escuro cursor-pointer transition-colors duration-200"
+            onClick={() => loadChat(item.chat_id)}
+          >
             { getItemLabel(item) }
           </li>
         )))
