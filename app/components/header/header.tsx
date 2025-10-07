@@ -39,6 +39,8 @@ export default function Header() {
             {currentUser?.displayName}
           </div>
           <Button 
+            size="sm"
+            className="w-24"
             onClick={() => leave()}
           >
             Sair
