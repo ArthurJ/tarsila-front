@@ -13,7 +13,7 @@ import {
   RequestError,
   sendMessage,
 } from "@/app/services/services";
-import style from "./chat-input.module.css";
+import Button from "../ui/Button";
 
 export default function ChatInput() {
   const uploadFileLink = useRef<HTMLInputElement>(null);
@@ -92,9 +92,9 @@ export default function ChatInput() {
 
   return (
     <>
-      <hr className={style.line} />
+      <hr className="text-verde-oliva-claro h-px my-4" />
       <form
-        className={style.wrapper}
+        className="w-full flex items-start"
         onSubmit={(e) => handleFormSubmit(e, userNewMessage)}
       >
         <textarea
@@ -102,20 +102,26 @@ export default function ChatInput() {
           disabled={loading}
           onKeyDown={(e) => handleKeyDown(e, userNewMessage)}
           onChange={(e) => setUserNewMessage(e.target.value)}
-          className={style.textarea}
+          className="w-[calc(100%-120px)] bg-marfim text-marrom-carvao rounded-lg p-3 px-4 box-border leading-5 min-h-[80px] mr-4 disabled:cursor-progress disabled:opacity-30"
           placeholder="Escreva aqui sua mensagem... (Shift + Enter para quebrar linha)"
         />
-        <div className={style.buttonsList}>
-          <button type="submit" disabled={loading}>
-            enviar
-          </button>
-          <button
-            type="button"
+        <div className="w-[120px] flex flex-col justify-between items-center gap-4">
+          <Button
+            size="sm"
+            className="w-full"
             disabled={loading}
             onClick={() => uploadFileLink.current?.click()}
           >
-            arquivo
-          </button>
+            Enviar
+          </Button>
+          <Button
+            size="sm"
+            className="w-full"
+            disabled={loading}
+            onClick={() => uploadFileLink.current?.click()}
+          >
+            Arquivo
+          </Button>
           <input
             ref={uploadFileLink}
             type="file"
@@ -127,13 +133,16 @@ export default function ChatInput() {
           />
         </div>
       </form>
-      <ul className={style.files}>
+      <ul className="flex list-none flex-wrap -mx-2 mt-2">
         {filesToSend.map((file: string, index: number) => (
-          <li className={style.file} key={index}>
+          <li 
+            className="relative rounded-lg bg-laranja-queimado text-marfim p-4 pr-14 pl-4 m-2 break-all w-[calc(33.33%-16px)] min-w-[280px]" 
+            key={index}
+          >
             {file}
             {!loading && (
               <button
-                className={style.remove}
+                className="absolute right-2 top-2 px-4 text-marfim bg-verde-oliva-claro border-none rounded-md py-2 cursor-pointer font-medium transition-all duration-200 hover:bg-verde-oliva-escuro"
                 onClick={() => removeFromSendList(file)}
               >
                 X

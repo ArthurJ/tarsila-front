@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import { useDialog } from "@/app/contexts/DialogsProvider";
-import style from "./dialog.module.css";
 import DialogMsg from "../dialog-msg/dialog-msg";
 
 export default function Dialog() {
@@ -25,8 +24,8 @@ export default function Dialog() {
   }, [dialogs.length]);
 
   return (
-    <div className={style.wrapper}>
-      <div className={style.inner} ref={targetRef}>
+    <div className="h-full overflow-y-auto">
+      <div className="flex flex-col justify-end min-h-full" ref={targetRef}>
         {dialogs.map((dialog) => (
           <DialogMsg
             key={String(dialog.timestamp)}

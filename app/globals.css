@@ -1,13 +1,60 @@
-:root {
-  --verde-oliva-escuro: #454633;
-  --verde-oliva-claro: #9c944e;
-  --verde-oliva: #40591b;
-  --marrom-carvao: #353026;
-  --marrom-siena: #723a1e;
-  --laranja-queimado: #aa6735;
-  --laranja: #e58200;
-  --marfim: #fff7ee;
+@import "tailwindcss";
 
+@theme {
+  /* Tarsila Cores da Marca */
+  --color-verde-oliva-escuro: #454633;
+  --color-verde-oliva-claro: #9c944e;
+  --color-verde-oliva: #40591b;
+  --color-marrom-carvao: #353026;
+  --color-marrom-siena: #723a1e;
+  --color-laranja-queimado: #aa6735;
+  --color-laranja: #e58200;
+  --color-marfim: #fff7ee;
+
+  /* Paleta Extendida */
+
+  --color-verde-oliva-escuro-50: #f5f4f0;
+  --color-verde-oliva-escuro-100: #e9e9de;
+  --color-verde-oliva-escuro-200: #d5d4c1;
+  --color-verde-oliva-escuro-300: #bbbb9b;
+  --color-verde-oliva-escuro-400: #a2a279;
+  --color-verde-oliva-escuro-500: #85865c;
+  --color-verde-oliva-escuro-600: #686947;
+  --color-verde-oliva-escuro-700: #515239;
+  --color-verde-oliva-escuro-800: #454633; /* Oliva Escuro */
+  --color-verde-oliva-escuro-900: #3a3b2c;
+  --color-verde-oliva-escuro-950: #1d1e15;
+
+  --color-verde-oliva-claro-50: #f7f6ee;
+  --color-verde-oliva-claro-100: #eeebd9;
+  --color-verde-oliva-claro-200: #ded8b8;
+  --color-verde-oliva-claro-300: #c8c08e;
+  --color-verde-oliva-claro-400: #b2aa69;
+  --color-verde-oliva-claro-500: #9c944e; /* Oliva Claro */
+  --color-verde-oliva-claro-600: #777239;
+  --color-verde-oliva-claro-700: #5c592f;
+  --color-verde-oliva-claro-800: #4b4929;
+  --color-verde-oliva-claro-900: #414026;
+  --color-verde-oliva-claro-950: #222211;
+
+  --color-verde-oliva-50: #f7fbea;
+  --color-verde-oliva-100: #ebf6d1;
+  --color-verde-oliva-200: #d8efa7;
+  --color-verde-oliva-300: #bee274;
+  --color-verde-oliva-400: #a3d249;
+  --color-verde-oliva-500: #85b82a;
+  --color-verde-oliva-600: #66921e;
+  --color-verde-oliva-700: #4e701b;
+  --color-verde-oliva-800: #40591b; /* Verde Oliva */
+  --color-verde-oliva-900: #374c1b;
+  --color-verde-oliva-950: #1b290a;
+
+
+  /* Font Family */
+  --font-family-work-sans: "Work Sans", sans-serif;
+}
+
+:root {
   --main-primary: var(--verde-oliva-escuro);
   --main-secondary: var(--verde-oliva-claro);
   --main-tertiary: var(--verde-oliva);
@@ -23,25 +70,10 @@
   --foreground: var(--main-tertiary);
 }
 
-html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: "Work Sans", sans-serif;
+  font-family: var(--font-family-work-sans);
   font-size: 14px;
   line-height: 18px;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  border: none;
 }
 
 a {
@@ -49,17 +81,8 @@ a {
   text-decoration: none;
 }
 
-button {
-  color: var(--white);
-  background-color: var(--main-secondary);
-  border: none;
-  border-radius: 6px;
-  padding: 8px 40px;
+a:hover {
   cursor: pointer;
-}
-
-button:hover {
-  background-color: var(--main-primary);
 }
 
 textarea:disabled,
@@ -69,23 +92,35 @@ button:disabled {
 }
 
 strong {
-  font-weight: bolder;
+  font-weight: 600;
 }
 
-.markdown {
+/* .markdown {
   text-align: justify;
+  color: var(--color-marrom-carvao);
 }
 
 .markdown h1 {
   line-height: 2em;
+  color: var(--color-laranja-queimado);
+  font-weight: 700;
 }
 
 .markdown h2 {
   line-height: 1.5em;
+  color: var(--color-laranja-queimado);
+  font-weight: 600;
+  font-style: italic;
+}
+
+.markdown h3 {
+  color: var(--color-verde-oliva-escuro);
+  font-weight: 600;
 }
 
 .markdown p {
   margin-bottom: 8px;
+  color: var(--color-verde-oliva-escuro);
 }
 
 .markdown :where(ul, ol) {
@@ -94,4 +129,36 @@ strong {
 
 .markdown :where(ul, ol) li {
   margin-bottom: 8px;
+}  */
+
+/* 
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+button {
+  color: var(--white);
+  background-color: var(--main-secondary);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 40px;
+  cursor: pointer;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--main-primary);
+}
+  
+*/

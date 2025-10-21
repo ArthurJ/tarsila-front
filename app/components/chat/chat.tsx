@@ -2,11 +2,10 @@
 
 import ChatInput from "../chat-input/chat-input";
 import Dialog from "../dialog/dialog";
-import style from "./chat.module.css";
 
 export default function Chat() {
   return (
-    <div className={style.wrapper}>
+    <div className="bg-marrom-carvao flex flex-col rounded-lg p-4 w-full h-full">
       <Dialog />
       <ChatInput />
     </div>

@@ -12,7 +12,6 @@ import {
 } from "../services/services";
 import Chat from "../components/chat/chat";
 import Draft from "../components/draft/draft";
-import style from "./page.module.css";
 
 export default function ChatPage() {
   let renderAfterCalled = false;
@@ -23,7 +22,7 @@ export default function ChatPage() {
   const { showLoader, hideLoader } = useLoader();
   const { setDialogs } = useDialog();
 
-  const chatId = currentChatId ? currentChatId : null
+  const chatId = currentChatId ? currentChatId : null;
 
   useEffect(() => {
     function handleResize() {
@@ -52,25 +51,41 @@ export default function ChatPage() {
 
   return (
     <ProtectedRoute>
-      <main className={style.wrapper}>
+      <main className="relative bg-verde-oliva-claro flex p-2 h-screen md:p-4">
         <div
-          className={`${style.slider} ${
-            showResult ? style.showResult : style.showChat
-          }`}
+          className={`
+            relative flex transition-transform duration-[800ms] ease-in-out
+            ${showResult ? '-translate-x-[calc(98vw-32px)]' : 'translate-x-0'}
+            md:w-full
+          `}
         >
-          <div className={style.panel}>
-            <Draft />
+          {/* Draft Panel */}
+          <div className="relative w-[calc(98vw-16px)] h-full flex-shrink-0 overflow-y-auto md:w-[35%]">
+            <div className="h-full">
+              <Draft />
+            </div>
           </div>
-          <div className={style.panel}>
-            <Chat />
+
+          {/* Chat Panel */}
+          <div className="relative w-[calc(98vw-16px)] h-full flex-shrink-0 overflow-y-auto md:w-[calc(65%-16px)] md:ml-4">
+            <div className="h-full">
+              <Chat />
+            </div>
           </div>
         </div>
 
         {isMobile && (
           <button
-            className={`${style.btnChangeView} ${
-              showResult ? style.showResult : style.showChat
-            }`}
+            className={`
+              absolute z-10 w-[200px] transition-all duration-[800ms] ease-in-out
+              bg-verde-oliva-claro hover:bg-verde-oliva-escuro
+              text-marfim font-medium rounded-md px-10 py-2
+              ${
+                showResult
+                  ? 'top-20 left-[calc(98vw-24px)]'
+                  : 'top-[calc(100vh-80px)] left-[calc(100vw-200px-8px)]'
+              }
+            `}
             onClick={() => setShowResult((prev) => !prev)}
           >
             {showResult ? "< ver o resultado" : "voltar ao chat >"}
