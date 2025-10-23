@@ -5,9 +5,9 @@ import ProtectedRoute from "../auth/ProtectedRoute";
 import { useLoader } from "../contexts/LoaderProvider";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../contexts/AuthProvider";
-import style from "./page.module.css";
 import { getPastChats, PastChats } from "../services/services";
 import { useHistory } from "../contexts/HistoryProvider";
+import Button from "../components/ui/Button";
 
 export default function Home() {
   const { push } = useRouter();
@@ -51,11 +51,9 @@ export default function Home() {
 
   return (
     <ProtectedRoute>
-      <main className={style.wrapper}>
-        <div className={style.panel}>
-          <button onClick={startNewChat}>Criar novo</button>
-          <button onClick={loadLastChat}>Continuar</button>
-        </div>
+      <main className="flex flex-col items-center justify-center gap-[1rem] h-full">
+        <Button onClick={startNewChat}>Criar novo</Button>
+        <Button onClick={loadLastChat}>Continuar</Button>
       </main>
     </ProtectedRoute>
   );

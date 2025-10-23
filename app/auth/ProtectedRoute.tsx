@@ -22,7 +22,9 @@ export default function ProtectedRoute({
   }
 
   return <>
-    <Header />
-    {children}
+    <Header className="h-[4rem]" />
+    <div className="h-[calc(100vh-4rem)]">
+      {children}
+    </div>
   </>;
 }

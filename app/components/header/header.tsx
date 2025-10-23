@@ -8,7 +8,7 @@ import NavMenu from "../nav-menu/nav-menu";
 import { useHistory } from "@/app/contexts/HistoryProvider";
 import Button from "../ui/Button";
 
-export default function Header() {
+export default function Header({ className }:{ className: string }) {
   const { isAuthenticated, currentUser, logOut } = useAuth();
   const { chatsList } = useHistory();
   const { showLoader } = useLoader();
@@ -25,7 +25,7 @@ export default function Header() {
 
   return (
     isAuthenticated && (
-      <header className="text-right p-4 bg-verde-oliva-escuro flex items-start justify-between h-16 z-[999]">
+      <header className={`text-right p-4 bg-verde-oliva-escuro flex items-start justify-between z-[999] ${className}`}>
         <div className="flex flex-col items-start bg-marrom-carvao rounded-md z-[99999]">
           { chatsList.length > 0 
             && <>
