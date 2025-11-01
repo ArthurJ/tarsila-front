@@ -51,7 +51,7 @@ export default function ChatPage() {
 
   return (
     <ProtectedRoute>
-      <main className="relative bg-verde-oliva-claro flex p-2 h-screen md:p-4">
+      <main className="relative bg-verde-oliva-claro flex p-2 md:p-4">
         <div
           className={`
             relative flex transition-transform duration-[800ms] ease-in-out
@@ -60,17 +60,13 @@ export default function ChatPage() {
           `}
         >
           {/* Draft Panel */}
-          <div className="relative w-[calc(98vw-16px)] h-full flex-shrink-0 overflow-y-auto md:w-[35%]">
-            <div className="h-full">
-              <Draft />
-            </div>
+          <div className="relative w-[calc(98vw-16px)] h-[calc(100vh-80px)] flex-shrink-0 overflow-y-auto md:w-[35%]">
+            <Draft />
           </div>
 
           {/* Chat Panel */}
-          <div className="relative w-[calc(98vw-16px)] h-full flex-shrink-0 overflow-y-auto md:w-[calc(65%-16px)] md:ml-4">
-            <div className="h-full">
-              <Chat />
-            </div>
+          <div className="relative w-[calc(98vw-16px)] h-[calc(100vh-80px)] flex-shrink-0 overflow-y-auto md:w-[calc(65%-16px)] md:ml-4">
+            <Chat />
           </div>
         </div>
 
