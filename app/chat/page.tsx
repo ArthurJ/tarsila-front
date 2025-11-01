@@ -15,7 +15,6 @@ import Draft from "../components/draft/draft";
 
 export default function ChatPage() {
   let renderAfterCalled = false;
-  const [isMobile, setIsMobile] = useState<boolean>(true);
   const [showResult, setShowResult] = useState<boolean>(false);
   const { currentUser } = useAuth();
   const { currentChatId } = useHistory();
@@ -23,17 +22,6 @@ export default function ChatPage() {
   const { setDialogs } = useDialog();
 
   const chatId = currentChatId ? currentChatId : null;
-
-  useEffect(() => {
-    function handleResize() {
-      setIsMobile(window.innerWidth < 980);
-    }
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   useEffect(() => {
     if (!renderAfterCalled) {
@@ -51,42 +39,23 @@ export default function ChatPage() {
 
   return (
     <ProtectedRoute>
-      <main className="relative bg-verde-oliva-claro flex p-2 md:p-4">
+      <main className="relative bg-verde-oliva-claro flex p-4">
         <div
           className={`
-            relative flex transition-transform duration-[800ms] ease-in-out
+            relative flex flex-col transition-transform duration-[800ms] ease-in-out
             ${showResult ? '-translate-x-[calc(98vw-32px)]' : 'translate-x-0'}
-            md:w-full
+            md:w-full md:flex-row
           `}
         >
           {/* Draft Panel */}
-          <div className="relative w-[calc(98vw-16px)] h-[calc(100vh-80px)] flex-shrink-0 overflow-y-auto md:w-[35%]">
+          <div className="relative h-[calc(60vh-56px)] flex-shrink-0 overflow-y-auto gap-y-2 md:w-[35%] md:h-[calc(100vh-80px)]">
             <Draft />
           </div>
-
           {/* Chat Panel */}
-          <div className="relative w-[calc(98vw-16px)] h-[calc(100vh-80px)] flex-shrink-0 overflow-y-auto md:w-[calc(65%-16px)] md:ml-4">
+          <div className="relative  h-[calc(40vh-40px)] flex-shrink-0 overflow-y-auto gap-y-2 md:w-[calc(65%-16px)] md:h-[calc(100vh-80px)] md:ml-4 mt-4 md:mt-0">
             <Chat />
           </div>
         </div>
-
-        {isMobile && (
-          <button
-            className={`
-              absolute z-10 w-[200px] transition-all duration-[800ms] ease-in-out
-              bg-verde-oliva-claro hover:bg-verde-oliva-escuro
-              text-marfim font-medium rounded-md px-10 py-2
-              ${
-                showResult
-                  ? 'top-20 left-[calc(98vw-24px)]'
-                  : 'top-[calc(100vh-80px)] left-[calc(100vw-200px-8px)]'
-              }
-            `}
-            onClick={() => setShowResult((prev) => !prev)}
-          >
-            {showResult ? "< ver o resultado" : "voltar ao chat >"}
-          </button>
-        )}
       </main>
     </ProtectedRoute>
   );
