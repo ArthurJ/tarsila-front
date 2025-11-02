@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import { useLoader } from "../contexts/LoaderProvider";
 import { useAuth } from "../contexts/AuthProvider";
 import { useDialog } from "../contexts/DialogsProvider";
@@ -18,7 +18,7 @@ import Draft from "../components/draft/draft";
 import Button from "../components/ui/Button";
 
 export default function ChatPage() {
-  let renderAfterCalled = false;
+  const renderAfterCalled = useRef(false);
   const [showResult, setShowResult] = useState<boolean>(false);
   const [showChatModal, setShowChatModal] = useState<boolean>(false);
   const { push } = useRouter();
@@ -27,58 +27,74 @@ export default function ChatPage() {
   const { showLoader, hideLoader } = useLoader();
   const { setDialogs } = useDialog();
 
-  const chatId = currentChatId ? currentChatId : null;
-
   const loadChatList = useCallback(() => {
-    if (!!currentUser && currentUser.email) {
-      getPastChats(currentUser.email)
+    if (currentUser?.email) {
+      return getPastChats(currentUser.email)
         .then((data) => {
-          const pastChats = data as PastChats
+          const pastChats = data as PastChats;
           if (pastChats.chats.length > 0) {
             updateChatsList(pastChats.chats);
           }
         })
+        .catch((error) => {
+          console.error("Error loading chat list:", error);
+        });
     }
-  }, [currentUser, updateChatsList]);
+    return Promise.resolve();
+  }, [currentUser?.email, updateChatsList]);
+
+  const initializeChat = useCallback(async () => {
+    if (!isAuthenticated) {
+      push("/");
+      return;
+    }
+
+    if (!currentUser?.email) {
+      hideLoader();
+      return;
+    }
+
+    try {
+      await loadChatList();
+      
+      if (!currentChatId) {
+        setShowChatModal(true);
+      } else {
+        const data = await startChat(currentUser.email, currentChatId);
+        setDialogs((data as Conversation).history);
+      }
+    } catch (error) {
+      console.error("Error initializing chat:", error);
+      setShowChatModal(true);
+    } finally {
+      hideLoader();
+    }
+  }, [isAuthenticated, currentUser?.email, currentChatId, push, loadChatList, setDialogs, hideLoader]);
 
   useEffect(() => {
-    if (!renderAfterCalled) {
-      showLoader();
-      
-      if (!isAuthenticated) {
-        push("/");
-        hideLoader();
-        return;
-      }
-
-      if (!!currentUser && currentUser.email) {
-        loadChatList();
-        
-        if (!chatId) {
-          setShowChatModal(true);
-          hideLoader();
-        } else {
-          startChat(currentUser.email, chatId)
-            .then((data) => {
-              setDialogs((data as Conversation).history);
-            })
-            .finally(() => hideLoader());
-        }
-      }
-      renderAfterCalled = true;
-    }
-  }, [isAuthenticated, currentUser, chatId, push, loadChatList, showLoader, hideLoader, setDialogs]);
+    if (renderAfterCalled.current) return;
+    
+    renderAfterCalled.current = true;
+    showLoader();
+    initializeChat();
+  }, [showLoader, initializeChat]);
 
   function startNewChat() {
     const newChatId = new Date().getTime().toString();
-    updateChatId(newChatId);
     setShowChatModal(false);
-    
     showLoader();
-    if (!!currentUser && currentUser.email) {
+    
+    updateChatId(newChatId);
+    
+    if (currentUser?.email) {
       startChat(currentUser.email, newChatId)
         .then((data) => {
           setDialogs((data as Conversation).history);
+        })
+        .catch((error) => {
+          console.error("Erro iniciando chat:", error);
+          updateChatId(null);
+          setShowChatModal(true);
         })
         .finally(() => hideLoader());
     }
@@ -87,14 +103,20 @@ export default function ChatPage() {
   function loadLastChat() {
     if (chatsList.length > 0) {
       const lastChatId = chatsList[0].chat_id;
-      updateChatId(lastChatId);
       setShowChatModal(false);
-      
       showLoader();
-      if (!!currentUser && currentUser.email) {
+      
+      updateChatId(lastChatId);
+      
+      if (currentUser?.email) {
         startChat(currentUser.email, lastChatId)
           .then((data) => {
             setDialogs((data as Conversation).history);
+          })
+          .catch((error) => {
+            console.error("Erro carregando ultimo chat:", error);
+            updateChatId(null);
+            setShowChatModal(true);
           })
           .finally(() => hideLoader());
       }
@@ -117,7 +139,6 @@ export default function ChatPage() {
             
             {/* Modal Content */}
             <div className="relative bg-white rounded-2xl shadow-2xl p-8 mx-4 max-w-md w-full transform transition-all">
-
               {/* Modal Header */}
               <div className="text-center mb-8">
                 <h2 className="text-2xl font-bold text-marrom-carvao mb-2">
@@ -147,7 +168,8 @@ export default function ChatPage() {
                   >
                     Continuar último projeto
                   </Button>
-                )}                
+                )}
+                
                 {!hasChats && (
                   <div className="text-center text-sm text-verde-oliva-escuro">
                     Você ainda não tem projetos salvos
