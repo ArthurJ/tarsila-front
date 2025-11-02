@@ -88,12 +88,13 @@
   --background: var(--white);
   --foreground: var(--main-tertiary);
 } */
-/* 
+
 body {
   font-family: var(--font-family-work-sans);
+  color: var(--color-marrom-carvao);
   font-size: 14px;
   line-height: 18px;
-} */
+}
 
 a {
   color: inherit;
@@ -114,9 +115,9 @@ strong {
   font-weight: 600;
 }
 
-/* .markdown {
+.markdown {
   text-align: justify;
-  color: var(--color-marrom-carvao);
+  /* color: var(--color-marrom-carvao); */
 }
 
 .markdown h1 {
@@ -139,7 +140,7 @@ strong {
 
 .markdown p {
   margin-bottom: 8px;
-  color: var(--color-verde-oliva-escuro);
+  /* color: var(--color-verde-oliva-escuro); */
 }
 
 .markdown :where(ul, ol) {
@@ -148,7 +149,7 @@ strong {
 
 .markdown :where(ul, ol) li {
   margin-bottom: 8px;
-}  */
+} 
 
 /* 
 html,
