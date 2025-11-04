@@ -20,7 +20,7 @@ export default function Homepage() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      push("/home");
+      push("/chat");
     }
   }, [isAuthenticated, push]);
 

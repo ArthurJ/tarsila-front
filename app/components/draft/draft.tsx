@@ -10,7 +10,7 @@ export default function Draft() {
 
   function defaultText() {
     return (
-      <div className="bg-marfim rounded-lg overflow-hidden w-full max-h-[100%]">
+      <div className="bg-marfim rounded-lg overflow-hidden w-full h-full">
         <div className="p-4 px-8 pb-20 overflow-y-auto h-full w-full text-center">
           <Image 
             className="my-20 mb-10 mx-auto" 

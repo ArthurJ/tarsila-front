@@ -49,12 +49,31 @@
   --color-verde-oliva-900: #374c1b;
   --color-verde-oliva-950: #1b290a;
 
+  /* Cores do tema */
+  --color-primary: var(--color-verde-oliva-800);
+  --color-primary-dark: var(--color-verde-oliva-escuro-800);
+  --color-primary-light: var(--color-verde-oliva-claro-500);
 
-  /* Font Family */
-  --font-family-work-sans: "Work Sans", sans-serif;
+  --color-secondary: var(--color-laranja-queimado);
+  --color-secondary-dark: var(--color-marrom-siena);
+  --color-secondary-light: var(--color-laranja);
+
+  --color-dark: var(--color-marrom-carvao);
+  --color-light: var(--color-marfim);
+
+  /* Tipografia */
+  --default-font-family: "Work Sans", sans-serif;
+  --default-font-size: 14px;
+  --default-line-height: 18px;
 }
 
-:root {
+@utility text-default {
+  font-family: var(--default-font-family);
+  font-size: var(--default-font-size);
+  line-height: var(--default-line-height);
+}
+
+/* :root {
   --main-primary: var(--verde-oliva-escuro);
   --main-secondary: var(--verde-oliva-claro);
   --main-tertiary: var(--verde-oliva);
@@ -68,10 +87,11 @@
 
   --background: var(--white);
   --foreground: var(--main-tertiary);
-}
+} */
 
 body {
   font-family: var(--font-family-work-sans);
+  color: var(--color-marrom-carvao);
   font-size: 14px;
   line-height: 18px;
 }
@@ -95,9 +115,9 @@ strong {
   font-weight: 600;
 }
 
-/* .markdown {
+.markdown {
   text-align: justify;
-  color: var(--color-marrom-carvao);
+  /* color: var(--color-marrom-carvao); */
 }
 
 .markdown h1 {
@@ -120,7 +140,7 @@ strong {
 
 .markdown p {
   margin-bottom: 8px;
-  color: var(--color-verde-oliva-escuro);
+  /* color: var(--color-verde-oliva-escuro); */
 }
 
 .markdown :where(ul, ol) {
@@ -129,7 +149,7 @@ strong {
 
 .markdown :where(ul, ol) li {
   margin-bottom: 8px;
-}  */
+} 
 
 /* 
 html,
