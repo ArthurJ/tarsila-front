@@ -29,7 +29,7 @@ export default function Login() {
     showLoader();
     if (isAuthenticated) {
       setErrorMsg(null);
-      push("/home");
+      push("/chat");
     } else {
       hideLoader();
     }
