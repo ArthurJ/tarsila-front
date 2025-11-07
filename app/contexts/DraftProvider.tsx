@@ -7,7 +7,7 @@ interface DraftContext {
   lastDraft: string;
   resetDrafts: () => void;
   addDraft: (newDraft: string) => void;
-  setdrafts: (newDrafts: Array<string>) => void;
+  setDrafts: (newDrafts: Array<string>) => void;
 }
 
 interface DraftContextProvider {
@@ -36,7 +36,7 @@ export const DraftProvider: React.FC<DraftContextProvider> = ({ children }) => {
     addDraft: (newDraft) => {
       setDratfs((prev) => [...prev, newDraft]);
     },
-    setdrafts: (newDrafts) => {
+    setDrafts: (newDrafts) => {
       setDratfs(newDrafts);
     },
   };
