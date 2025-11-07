@@ -13,7 +13,7 @@ export default function ProtectedRoute({
 
   useEffect(() => {
     if (finished && !isAuthenticated) {
-      push("/login");
+      push("/");
     }
   }, [finished, isAuthenticated]);
 
