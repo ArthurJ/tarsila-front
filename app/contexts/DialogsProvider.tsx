@@ -29,18 +29,18 @@ export const useDialog = () => {
 export const DialogProvider: React.FC<DialogContextProvider> = ({
   children,
 }) => {
-  const [dialogs, setDratfs] = useState<Array<Message>>([]);
+  const [dialogs, setDialogs] = useState<Array<Message>>([]);
 
   const contextValue: DialogContext = {
     dialogs,
     resetDialogs: () => {
-      setDratfs([]);
+      setDialogs([]);
     },
     addDialog: (newDialog) => {
-      setDratfs((prev) => [...prev, newDialog]);
+      setDialogs((prev) => [...prev, newDialog]);
     },
     setDialogs: (newDialogs) => {
-      setDratfs(newDialogs);
+      setDialogs(newDialogs);
     },
   };
 
