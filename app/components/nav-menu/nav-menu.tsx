@@ -4,11 +4,13 @@ import { ChatId, ChatType, Conversation, startChat } from "@/app/services/servic
 import { useHistory } from "@/app/contexts/HistoryProvider";
 import { useAuth } from "@/app/contexts/AuthProvider";
 import { useDialog } from "@/app/contexts/DialogsProvider";
+import { useDraft } from "@/app/contexts/DraftProvider";
 
 export default function NavMenu() {
   const { chatsList, updateChatId } = useHistory();
   const { currentUser } = useAuth()
   const { setDialogs } = useDialog();
+  const { setDrafts } = useDraft();
 
   function getItemLabel(menuItem: ChatType) {
     if (!menuItem.title && menuItem.chat_id) {
@@ -31,6 +33,7 @@ export default function NavMenu() {
       startChat(currentUser.email, chatId)
         .then((data) => {
           setDialogs((data as Conversation).history);
+          setDrafts([(data as Conversation).draft])          
         });
     }
   }
