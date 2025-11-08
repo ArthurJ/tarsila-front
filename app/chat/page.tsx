@@ -16,6 +16,7 @@ import {
 import Chat from "../components/chat/chat";
 import Draft from "../components/draft/draft";
 import Button from "../components/ui/Button";
+import { useDraft } from "../contexts/DraftProvider";
 
 export default function ChatPage() {
   const renderAfterCalled = useRef(false);
@@ -26,6 +27,7 @@ export default function ChatPage() {
   const { currentChatId, updateChatsList, updateChatId, chatsList } = useHistory();
   const { showLoader, hideLoader } = useLoader();
   const { setDialogs } = useDialog();
+  const { setDrafts } = useDraft();
 
   const loadChatList = useCallback(() => {
     if (currentUser?.email) {
@@ -62,6 +64,7 @@ export default function ChatPage() {
       } else {
         const data = await startChat(currentUser.email, currentChatId);
         setDialogs((data as Conversation).history);
+        setDrafts([(data as Conversation).draft])
       }
     } catch (error) {
       console.error("Error initializing chat:", error);
@@ -90,6 +93,7 @@ export default function ChatPage() {
       startChat(currentUser.email, newChatId)
         .then((data) => {
           setDialogs((data as Conversation).history);
+          setDrafts([(data as Conversation).draft])
         })
         .catch((error) => {
           console.error("Erro iniciando chat:", error);
@@ -112,6 +116,7 @@ export default function ChatPage() {
         startChat(currentUser.email, lastChatId)
           .then((data) => {
             setDialogs((data as Conversation).history);
+            setDrafts([(data as Conversation).draft])
           })
           .catch((error) => {
             console.error("Erro carregando ultimo chat:", error);
