@@ -1,12 +1,20 @@
 "use client";
 
-import logo from "../../../public/logo.png";
 import Image from "next/image";
+import { useState } from "react";
 import MarkdownView from "react-showdown";
+import logo from "@/public/logo.png";
 import { useDraft } from "@/app/contexts/DraftProvider";
+import Button from "@/app/components/ui/Button";
+import DownloadForm from "../download-form";
 
 export default function Draft() {
   const { lastDraft } = useDraft();
+  const [showDownloadForm, setShowDownloadForm] = useState<boolean>(false);
+
+  function handleDownloadForm(): void {
+    setShowDownloadForm(!showDownloadForm);
+  }
 
   function defaultText() {
     return (
@@ -26,14 +34,22 @@ export default function Draft() {
   }
 
   return lastDraft ? (
-    <div className="bg-marfim rounded-lg p-4 px-8 pb-20 overflow-y-auto w-full">
+    <div className="flex flex-col items-center bg-marfim rounded-lg p-4 px-8 pb-20 overflow-y-auto w-full">
       <MarkdownView
+        id="draft"
         className="markdown"
         markdown={lastDraft}
         options={{ tables: true, emoji: true }}
       />
+      {showDownloadForm
+        ? <DownloadForm setVisibilityAction={setShowDownloadForm} />
+        : <Button
+          size="sm"
+          onClick={() => handleDownloadForm()}
+        >Salvar proposta</Button>
+      }
     </div>
   ) : (
     defaultText()
   );
-}
+};
