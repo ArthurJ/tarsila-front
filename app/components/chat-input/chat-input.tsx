@@ -110,7 +110,7 @@ export default function ChatInput() {
             size="sm"
             className="w-full"
             disabled={loading}
-            onClick={() => uploadFileLink.current?.click()}
+            type="submit"
           >
             Enviar
           </Button>
