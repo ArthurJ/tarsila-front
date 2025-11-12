@@ -157,3 +157,30 @@ export async function addFile(
     return { errorMsg: error } as RequestError;
   }
 }
+
+export async function convertToPdf(
+  html: string
+): Promise<Blob | RequestError> {
+  const path = "/v1/convert-to-pdf";
+  const body = JSON.stringify({ html });
+
+  try {
+    const resp = await fetch(url + path, { method: "POST", headers, body });
+
+    if (!resp.ok) {
+      throw new Error(`HTTP error! status: ${resp.status}`);
+    };
+    const data = (await resp.blob());
+
+    // verifica se dados obrigatorios foram retornados
+
+    // if (!data.ai_message) {
+    //   throw new Error("Missing ai_message.");
+    // }
+
+    return data;
+  } catch (error) {
+    console.error(error);
+    return { errorMsg: error } as RequestError;
+  };
+};
