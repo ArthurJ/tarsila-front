@@ -84,37 +84,24 @@ export default function Homepage() {
               </p>
             </div>
 
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Plano Do Sonho ao Projeto */}
+            <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Plano Individual */}
               <PricingCard
-                title="Do Sonho ao Projeto"
-                subtitle="Porta de entrada"
-                price="R$ 449"
-                installments="12x de R$ 39,92"
-                description="1 projeto cultural completo"
+                title="Plano Individual"
+                price="R$ 549.90"
+                installments="12x de R$ 48.70"
                 features={[
-                  'Nome do Projeto',
-                  'Proponente',
-                  'Segmento Cultural',
-                  'Resumo do Projeto',
-                  'Justificativa',
-                  'Objetivos (geral e específicos)',
-                  'Contrapartidas Sociais',
-                  'Acessibilidade',
-                  'Estrutura de Execução',
-                  'Cronograma de Realização',
-                  'Orçamento Detalhado',
-                  '5 interações adicionais',
-                  '1 portfólio individual',
-                  '1 guia de orientação',
+                  'Elaboração de 1 projeto',
+                  'Ajustes liberados por 6 meses',
+                  'Exportação em PDF ou Markdown',
+                  'Suporte por email'
                 ]}
-                note="Valor à vista pode ser dividido entre até 5 usuários (R$ 89,80/cada)"
                 onLogin={handleLogin}
                 isAuthenticated={isAuthenticated}
               />
 
               {/* Plano Portfólio */}
-              <PricingCard
+              {/* <PricingCard
                 title="Portfólio"
                 subtitle="Mais projetos, mais colaboração"
                 price="R$ 1.212,30"
@@ -133,27 +120,21 @@ export default function Homepage() {
                 badge="Popular"
                 onLogin={handleLogin}
                 isAuthenticated={isAuthenticated}
-              />
+              /> */}
 
-              {/* Plano Trupe */}
+              {/* Plano para Organizações */}
               <PricingCard
-                title="Trupe"
-                subtitle="Para grupos e coletivos"
-                price="R$ 1.745"
-                installments="12x de R$ 162,00"
-                description="5 projetos culturais completos"
+                title="Plano para Organizações"
+                installments="Sob Consulta"
                 features={[
-                  'Tudo do plano anterior',
-                  '5 projetos completos',
-                  '20 interações adicionais por projeto',
-                  '1 painel de projetos',
-                  '5 portfólios individuais',
-                  '1 guia de orientação',
-                  'Suporte humanizado por projeto',
+                  'Tudo do Plano Indivídual',
+                  'Múltiplos usuários',
+                  'Suporte Prioritário',
+                  'Treinamento'
                 ]}
-                note="Valor à vista pode ser dividido entre até 5 usuários (R$ 349/cada)"
                 onLogin={handleLogin}
                 isAuthenticated={isAuthenticated}
+                cta='Solicitar Proposta'
               />
             </div>
           </div>
@@ -219,15 +200,16 @@ export default function Homepage() {
 interface PricingCardProps {
   title: string
   subtitle?: string
-  price: string
+  price?: string
   installments: string
-  description: string
+  description?: string
   features: string[]
-  note: string
+  note?: string
   highlighted?: boolean
   badge?: string
   onLogin: () => void
   isAuthenticated: boolean
+  cta?: string
 }
 
 function PricingCard({
@@ -242,6 +224,7 @@ function PricingCard({
   badge,
   onLogin,
   isAuthenticated,
+  cta = "Começar Agora"
 }: PricingCardProps) {
   return (
     <div
@@ -266,19 +249,27 @@ function PricingCard({
 
       <div className="text-center mb-6">
         <div className="text-3xl font-bold text-marrom-siena mb-1">
-          {price}
+          {installments}
         </div>
-        <div className="text-sm text-verde-oliva-escuro">
-          à vista
-        </div>
-        <div className="text-xs text-verde-oliva-escuro mt-1">
-          ou {installments}
-        </div>
+        {price && ( 
+          <>       
+            <div className="text-sm text-verde-oliva-escuro">
+              ou
+            </div>
+            <div className="text-xs text-verde-oliva-escuro mt-1">
+              {price} à vista
+            </div>
+          </>
+        )}
       </div>
 
-      <p className="text-center text-marrom-carvao font-medium mb-6 pb-6 border-b border-verde-oliva-claro/30">
+      {description && (  
+      <p className="text-center text-marrom-carvao font-medium mb-6">
         {description}
       </p>
+      )}
+      
+      <hr className='mb-6 border-t border-verde-oliva-claro/30' />
 
       <ul className="space-y-3 mb-6 flex-grow">
         {features.map((feature, index) => (
@@ -290,12 +281,13 @@ function PricingCard({
           </li>
         ))}
       </ul>
-
-      <div className="mb-6 mt-auto">
-        <p className="text-xs text-verde-oliva-escuro italic bg-verde-oliva-escuro-200 p-3 rounded-lg">
-          {note}
-        </p>
-      </div>
+      {note && (
+        <div className="mb-6 mt-auto">
+          <p className="text-xs text-verde-oliva-escuro italic bg-verde-oliva-escuro-200 p-3 rounded-lg">
+            {note}
+          </p>
+        </div>
+        )}
 
       <Button 
         variant={highlighted ? "primary" : "outline"}
@@ -304,7 +296,7 @@ function PricingCard({
         onClick={onLogin}
         disabled={isAuthenticated}
       >
-        Começar Agora
+        {cta}
       </Button>
     </div>
   )
