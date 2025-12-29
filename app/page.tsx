@@ -247,7 +247,7 @@ function PricingCard({
         )}
       </div>
 
-      <div className="text-center mb-6">
+      <div className="text-center mb-6 grow">
         <div className="text-3xl font-bold text-marrom-siena mb-1">
           {installments}
         </div>
@@ -271,7 +271,7 @@ function PricingCard({
       
       <hr className='mb-6 border-t border-verde-oliva-claro/30' />
 
-      <ul className="space-y-3 mb-6 flex-grow">
+      <ul className="space-y-3 mb-6">
         {features.map((feature, index) => (
           <li key={index} className="flex items-start">
             <CheckCircle2 className="h-5 w-5 text-verde-oliva-600 mr-3 flex-shrink-0 mt-0.5" />
