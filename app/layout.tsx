@@ -5,6 +5,7 @@ import { HistoryProvider } from "./contexts/HistoryProvider";
 import { LoaderProvider } from "./contexts/LoaderProvider";
 import { DraftProvider } from "./contexts/DraftProvider";
 import { DialogProvider } from "./contexts/DialogsProvider";
+import Header from "./components/header/header";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -25,7 +26,10 @@ export default function RootLayout({
           <LoaderProvider>
             <DraftProvider>
               <DialogProvider>
-                {children}
+                <Header className="h-[4rem]" />
+                <div className="h-[calc(100vh-4rem)]">
+                  {children}
+                </div>
               </DialogProvider>
             </DraftProvider>
           </LoaderProvider>

@@ -67,7 +67,7 @@ export default function Homepage() {
             
             <div className="mt-12">
               <Button size="lg" onClick={handleLogin} disabled={isAuthenticated}>
-                Entrar com Google
+                Criar Meu Primeiro Projeto
               </Button>
               {errorMsg && <p className="text-red-600 mt-4">{errorMsg}</p>}
             </div>
@@ -142,15 +142,14 @@ export default function Homepage() {
           {/* CTA Section */}
           <div className="text-center bg-gradient-to-r from-verde-oliva-claro/10 to-laranja-queimado/10 rounded-3xl p-12">
             <h2 className="text-3xl font-bold text-marrom-carvao mb-4">
-              Vamos transformar suas ideias em projetos?
+              Pronto para transformar sua ideia em um projeto cultural?
             </h2>
             <p className="text-verde-oliva-escuro mb-8 max-w-2xl mx-auto">
-              Amplie, diversifique e fortaleça sua comunidade com a Tarsila. 
-              Comece a criar projetos culturais de forma colaborativa hoje mesmo.
+              Junte-se a centenas de criadores que já estão usando a Tarsila para dar vida aos seus projetos culturais.
             </p>
             <div>
               <Button size="lg" onClick={handleLogin} disabled={isAuthenticated}>
-                Entrar com Google
+                Começar Gratuitamente
               </Button>
               {errorMsg && <p className="text-red-600 mt-4">{errorMsg}</p>}
             </div>
