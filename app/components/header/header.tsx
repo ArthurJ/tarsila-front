@@ -17,6 +17,7 @@ export default function Header({ className }:{ className: string }) {
   const [isAvatarMenuOpen, setAvatarMenuOpen] = useState<boolean>(false);
   const [hasScrolled, setHasScrolled] = useState<boolean>(false);
   const avatarMenuRef = useRef<HTMLDivElement>(null);
+  const hamburgerMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +27,9 @@ export default function Header({ className }:{ className: string }) {
     const handleClickOutside = (event: MouseEvent) => {
       if (avatarMenuRef.current && !avatarMenuRef.current.contains(event.target as Node)) {
         setAvatarMenuOpen(false);
+      }
+      if (hamburgerMenuRef.current && !hamburgerMenuRef.current.contains(event.target as Node)) {
+        setMenuOpen(false);
       }
     };
 
@@ -117,7 +121,7 @@ export default function Header({ className }:{ className: string }) {
             </div>
 
             { chatsList.length > 0 && (
-              <div className="relative">
+              <div className="relative" ref={hamburgerMenuRef}>
                 <button
                   onClick={handleMenu}
                   className="text-laranja-queimado hover:text-laranja transition-colors duration-200 p-2"
