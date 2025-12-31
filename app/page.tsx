@@ -45,7 +45,7 @@ export default function Homepage() {
           <div className="text-center mb-20">
             <div className="mb-12">
               <Image 
-                src="/logo.png" 
+                src="/logo.svg" 
                 alt="Logo Tarsila" 
                 width={120} 
                 height={120}

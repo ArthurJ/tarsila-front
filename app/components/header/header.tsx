@@ -2,17 +2,28 @@
 
 import { useAuth } from "@/app/contexts/AuthProvider";
 import { useLoader } from "@/app/contexts/LoaderProvider";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MenuButton from "../menu-button/menu-button";
 import NavMenu from "../nav-menu/nav-menu";
 import { useHistory } from "@/app/contexts/HistoryProvider";
 import Button from "../ui/Button";
+import Image from "next/image";
 
 export default function Header({ className }:{ className: string }) {
   const { isAuthenticated, currentUser, logOut, signIn } = useAuth();
   const { chatsList } = useHistory();
   const { showLoader } = useLoader();
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
+  const [hasScrolled, setHasScrolled] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setHasScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   function handleMenu() {
     setMenuOpen(!isMenuOpen)
@@ -29,19 +40,27 @@ export default function Header({ className }:{ className: string }) {
   }
 
   return (
-    <header className={`text-right p-4 bg-verde-oliva-escuro flex items-start justify-between z-[999] ${className}`}>
-      <div className="flex flex-col items-start bg-marrom-carvao rounded-md z-[99999]">
+    <header className={`sticky top-0 p-4 bg-marfim flex items-center justify-between z-[999] transition-shadow duration-200 ${hasScrolled ? 'shadow-sm' : ''} ${className}`}>
+      <div className="flex items-center gap-4">
+        <Image
+          src="/logo-text.svg"
+          alt="Tarsila Logo"
+          width={120}
+          height={40}
+          priority
+        />
         { isAuthenticated && chatsList.length > 0 
-          && <>
+          && <div className="flex flex-col items-start bg-marrom-carvao rounded-md z-[99999]">
             <MenuButton onClick={handleMenu} />
             { isMenuOpen && <NavMenu /> }
-          </>
+          </div>
         }
       </div>
-      <div>
+
+      <div className="flex items-center">
         {isAuthenticated ? (
           <>
-            <div className="inline-block text-marfim mr-4">
+            <div className="inline-block text-marrom-carvao mr-4">
               {currentUser?.displayName}
             </div>
             <Button 
