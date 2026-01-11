@@ -40,36 +40,34 @@ export default function Homepage() {
   return (
     <div className="min-h-screen flex flex-col bg-marfim">
       <main className="flex-1">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
           {/* Hero Section */}
           <div className="text-center mb-20">
             <div className="mb-12">
               <Image 
-                src="/logo.png" 
+                src="/logo.svg" 
                 alt="Logo Tarsila" 
                 width={120} 
                 height={120}
-                className="mx-auto mb-8"
+                className="mx-auto mb-8 opacity-0 animate-fadeIn [animation-delay:1s]"
                 priority
               />
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-marrom-carvao tracking-tight">
-              A elaboração de projetos <br className="hidden sm:block" />
+            <h1 className="text-5xl sm:text-6xl md:text-7xl text-marrom-carvao tracking-tight">
+              Seu projeto cultural<br className="hidden sm:block" />
               <span className="text-laranja-queimado">
                 em um novo patamar
               </span>
             </h1>
             
-            <p className="mt-8 max-w-2xl mx-auto text-lg sm:text-xl text-verde-oliva-escuro leading-relaxed">
-              Acreditamos na cocriação como a melhor forma de promover a inclusão de 
-              empreendedores culturais. Cada um se beneficia do todo, ao mesmo tempo 
-              em que oferece a sua contribuição.
+            <p className="mt-8 max-w-4xl mx-auto text-lg sm:text-xl text-verde-oliva-escuro leading-relaxed">
+              Transforme suas ideias em projetos culturais profissionais com o poder da inteligência artificial
             </p>
             
             <div className="mt-12">
               <Button size="lg" onClick={handleLogin} disabled={isAuthenticated}>
-                Entrar com Google
+                Criar Meu Primeiro Projeto
               </Button>
               {errorMsg && <p className="text-red-600 mt-4">{errorMsg}</p>}
             </div>
@@ -86,37 +84,24 @@ export default function Homepage() {
               </p>
             </div>
 
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Plano Do Sonho ao Projeto */}
+            <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Plano Individual */}
               <PricingCard
-                title="Do Sonho ao Projeto"
-                subtitle="Porta de entrada"
-                price="R$ 449"
-                installments="12x de R$ 39,92"
-                description="1 projeto cultural completo"
+                title="Plano Individual"
+                price="R$ 549.90"
+                installments="12x de R$ 48.70"
                 features={[
-                  'Nome do Projeto',
-                  'Proponente',
-                  'Segmento Cultural',
-                  'Resumo do Projeto',
-                  'Justificativa',
-                  'Objetivos (geral e específicos)',
-                  'Contrapartidas Sociais',
-                  'Acessibilidade',
-                  'Estrutura de Execução',
-                  'Cronograma de Realização',
-                  'Orçamento Detalhado',
-                  '5 interações adicionais',
-                  '1 portfólio individual',
-                  '1 guia de orientação',
+                  'Elaboração de 1 projeto',
+                  'Ajustes liberados por 6 meses',
+                  'Exportação em PDF ou Markdown',
+                  'Suporte por email'
                 ]}
-                note="Valor à vista pode ser dividido entre até 5 usuários (R$ 89,80/cada)"
                 onLogin={handleLogin}
                 isAuthenticated={isAuthenticated}
               />
 
               {/* Plano Portfólio */}
-              <PricingCard
+              {/* <PricingCard
                 title="Portfólio"
                 subtitle="Mais projetos, mais colaboração"
                 price="R$ 1.212,30"
@@ -135,27 +120,21 @@ export default function Homepage() {
                 badge="Popular"
                 onLogin={handleLogin}
                 isAuthenticated={isAuthenticated}
-              />
+              /> */}
 
-              {/* Plano Trupe */}
+              {/* Plano para Organizações */}
               <PricingCard
-                title="Trupe"
-                subtitle="Para grupos e coletivos"
-                price="R$ 1.745"
-                installments="12x de R$ 162,00"
-                description="5 projetos culturais completos"
+                title="Plano para Organizações"
+                installments="Sob Consulta"
                 features={[
-                  'Tudo do plano anterior',
-                  '5 projetos completos',
-                  '20 interações adicionais por projeto',
-                  '1 painel de projetos',
-                  '5 portfólios individuais',
-                  '1 guia de orientação',
-                  'Suporte humanizado por projeto',
+                  'Tudo do Plano Indivídual',
+                  'Múltiplos usuários',
+                  'Suporte Prioritário',
+                  'Treinamento'
                 ]}
-                note="Valor à vista pode ser dividido entre até 5 usuários (R$ 349/cada)"
                 onLogin={handleLogin}
                 isAuthenticated={isAuthenticated}
+                cta='Solicitar Proposta'
               />
             </div>
           </div>
@@ -163,15 +142,14 @@ export default function Homepage() {
           {/* CTA Section */}
           <div className="text-center bg-gradient-to-r from-verde-oliva-claro/10 to-laranja-queimado/10 rounded-3xl p-12">
             <h2 className="text-3xl font-bold text-marrom-carvao mb-4">
-              Vamos transformar suas ideias em projetos?
+              Pronto para transformar sua ideia em um projeto cultural?
             </h2>
             <p className="text-verde-oliva-escuro mb-8 max-w-2xl mx-auto">
-              Amplie, diversifique e fortaleça sua comunidade com a Tarsila. 
-              Comece a criar projetos culturais de forma colaborativa hoje mesmo.
+              Junte-se a centenas de criadores que já estão usando a Tarsila para dar vida aos seus projetos culturais.
             </p>
             <div>
               <Button size="lg" onClick={handleLogin} disabled={isAuthenticated}>
-                Entrar com Google
+                Começar Gratuitamente
               </Button>
               {errorMsg && <p className="text-red-600 mt-4">{errorMsg}</p>}
             </div>
@@ -221,15 +199,16 @@ export default function Homepage() {
 interface PricingCardProps {
   title: string
   subtitle?: string
-  price: string
+  price?: string
   installments: string
-  description: string
+  description?: string
   features: string[]
-  note: string
+  note?: string
   highlighted?: boolean
   badge?: string
   onLogin: () => void
   isAuthenticated: boolean
+  cta?: string
 }
 
 function PricingCard({
@@ -244,6 +223,7 @@ function PricingCard({
   badge,
   onLogin,
   isAuthenticated,
+  cta = "Começar Agora"
 }: PricingCardProps) {
   return (
     <div
@@ -266,23 +246,31 @@ function PricingCard({
         )}
       </div>
 
-      <div className="text-center mb-6">
+      <div className="text-center mb-6 grow">
         <div className="text-3xl font-bold text-marrom-siena mb-1">
-          {price}
+          {installments}
         </div>
-        <div className="text-sm text-verde-oliva-escuro">
-          à vista
-        </div>
-        <div className="text-xs text-verde-oliva-escuro mt-1">
-          ou {installments}
-        </div>
+        {price && ( 
+          <>       
+            <div className="text-sm text-verde-oliva-escuro">
+              ou
+            </div>
+            <div className="text-xs text-verde-oliva-escuro mt-1">
+              {price} à vista
+            </div>
+          </>
+        )}
       </div>
 
-      <p className="text-center text-marrom-carvao font-medium mb-6 pb-6 border-b border-verde-oliva-claro/30">
+      {description && (  
+      <p className="text-center text-marrom-carvao font-medium mb-6">
         {description}
       </p>
+      )}
+      
+      <hr className='mb-6 border-t border-verde-oliva-claro/30' />
 
-      <ul className="space-y-3 mb-6 flex-grow">
+      <ul className="space-y-3 mb-6">
         {features.map((feature, index) => (
           <li key={index} className="flex items-start">
             <CheckCircle2 className="h-5 w-5 text-verde-oliva-600 mr-3 flex-shrink-0 mt-0.5" />
@@ -292,12 +280,13 @@ function PricingCard({
           </li>
         ))}
       </ul>
-
-      <div className="mb-6 mt-auto">
-        <p className="text-xs text-verde-oliva-escuro italic bg-verde-oliva-escuro-200 p-3 rounded-lg">
-          {note}
-        </p>
-      </div>
+      {note && (
+        <div className="mb-6 mt-auto">
+          <p className="text-xs text-verde-oliva-escuro italic bg-verde-oliva-escuro-200 p-3 rounded-lg">
+            {note}
+          </p>
+        </div>
+        )}
 
       <Button 
         variant={highlighted ? "primary" : "outline"}
@@ -306,7 +295,7 @@ function PricingCard({
         onClick={onLogin}
         disabled={isAuthenticated}
       >
-        Começar Agora
+        {cta}
       </Button>
     </div>
   )

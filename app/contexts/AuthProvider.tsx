@@ -14,7 +14,7 @@ import {
   GoogleAuthProvider,
   signOut,
 } from "firebase/auth";
-import { auth } from "../auth/firebase";
+import { auth } from "@/app/auth/firebase";
 
 interface AuthContextType {
   isAuthenticated: boolean;
