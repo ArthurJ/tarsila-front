@@ -127,7 +127,7 @@ strong {
   font-weight: 600;
 }
 
-.markdown {
+.markdown, .dialog-markdown {
   text-align: justify;
   /* color: var(--color-marrom-carvao); */
 }
@@ -150,16 +150,16 @@ strong {
   font-weight: 600;
 }
 
-.markdown p {
+.markdown p, .dialog-markdown p {
   margin-bottom: 8px;
   /* color: var(--color-verde-oliva-escuro); */
 }
 
-.markdown :where(ul, ol) {
+.markdown :where(ul, ol), .dialog-markdown :where(ul, ol) {
   margin: 8px 0 16px 16px;
 }
 
-.markdown :where(ul, ol) li {
+.markdown :where(ul, ol) li, .dialog-markdown :where(ul, ol) li {
   margin-bottom: 8px;
 } 
 

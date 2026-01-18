@@ -23,13 +23,13 @@ export default function DialogMsg(props: Readonly<DialogMsgProps>) {
       `}
     >
       <MarkdownView
-        className="markdown"
+        className="dialog-markdown"
         markdown={props.message}
         options={{ tables: true, emoji: true }}
       />
 
       <br />
-      <div className="min-w-[160px] w-[calc(100%-16px)] text-[11px] ml-4 mb-2 text-marfim text-right opacity-50">
+      <div className="min-w-[160px] w-[calc(100%-16px)] text-[11px] ml-4 mb-2 text-marfim[] text-right opacity-50">
         {props.timeStamp}
       </div>
     </div>
