@@ -15,11 +15,18 @@ import {
 } from "@/app/services/services";
 import Button from "../ui/Button";
 
+const InlineSpinner = () => (
+  <span
+    aria-label="Loading"
+    className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent opacity-70"
+  />
+);
+
 export default function ChatInput() {
   const uploadFileLink = useRef<HTMLInputElement>(null);
   const { currentUser} = useAuth();
   const { currentChatId } = useHistory()
-  const { addDialog, setDialogs } = useDialog();
+  const { addDialog, setDialogs, waitingChat } = useDialog();
   const { addDraft } = useDraft();
   const [loading, setLoading] = useState<boolean>(false);
   const [userNewMessage, setUserNewMessage] = useState<string>("");
@@ -97,14 +104,21 @@ export default function ChatInput() {
         className="w-full flex items-start"
         onSubmit={(e) => handleFormSubmit(e, userNewMessage)}
       >
-        <textarea
-          value={userNewMessage}
-          disabled={loading}
-          onKeyDown={(e) => handleKeyDown(e, userNewMessage)}
-          onChange={(e) => setUserNewMessage(e.target.value)}
-          className="w-[calc(100%-120px)] bg-marfim text-marrom-carvao rounded-lg p-3 px-4 box-border leading-5 min-h-[80px] mr-4 disabled:cursor-progress disabled:opacity-30"
-          placeholder="Escreva aqui sua mensagem... (Shift + Enter para quebrar linha)"
-        />
+        <div className="relative w-[calc(100%-120px)] mr-4">
+          <textarea
+            value={userNewMessage}
+            disabled={waitingChat}
+            onKeyDown={(e) => handleKeyDown(e, userNewMessage)}
+            onChange={(e) => setUserNewMessage(e.target.value)}
+            className="w-full bg-marfim text-marrom-carvao rounded-lg p-3 px-4 box-border leading-5 min-h-[80px] disabled:cursor-progress disabled:opacity-30 pr-10"
+            placeholder="Escreva aqui sua mensagem... (Shift + Enter para quebrar linha)"
+          />
+          {waitingChat && (
+            <div className="absolute right-3 bottom-3 text-verde-oliva-escuro">
+              <InlineSpinner />
+            </div>
+          )}
+        </div>
         <div className="w-[120px] flex flex-col justify-between items-center gap-4">
           <Button
             size="sm"
