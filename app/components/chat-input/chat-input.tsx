@@ -107,13 +107,13 @@ export default function ChatInput() {
         <div className="relative w-[calc(100%-120px)] mr-4">
           <textarea
             value={userNewMessage}
-            disabled={waitingChat}
+            disabled={loading || waitingChat}
             onKeyDown={(e) => handleKeyDown(e, userNewMessage)}
             onChange={(e) => setUserNewMessage(e.target.value)}
             className="w-full bg-marfim text-marrom-carvao rounded-lg p-3 px-4 box-border leading-5 min-h-[80px] disabled:cursor-progress disabled:opacity-30 pr-10"
             placeholder="Escreva aqui sua mensagem... (Shift + Enter para quebrar linha)"
           />
-          {waitingChat && (
+          {loading || waitingChat && (
             <div className="absolute right-3 bottom-3 text-verde-oliva-escuro">
               <InlineSpinner />
             </div>
