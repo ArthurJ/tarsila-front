@@ -123,7 +123,7 @@ export default function ChatInput() {
           <Button
             size="sm"
             className="w-full"
-            disabled={loading}
+            disabled={loading || waitingChat}
             type="submit"
           >
             Enviar
@@ -131,7 +131,7 @@ export default function ChatInput() {
           <Button
             size="sm"
             className="w-full"
-            disabled={loading}
+            disabled={loading || waitingChat}
             onClick={() => uploadFileLink.current?.click()}
           >
             Arquivo
