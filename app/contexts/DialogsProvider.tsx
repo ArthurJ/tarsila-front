@@ -8,6 +8,7 @@ interface DialogContext {
   resetDialogs: () => void;
   addDialog: (newDialog: Message) => void;
   setDialogs: (newDialogs: Array<Message>) => void;
+  waitingChat: boolean;
 }
 
 interface DialogContextProvider {
@@ -33,6 +34,7 @@ export const DialogProvider: React.FC<DialogContextProvider> = ({
 
   const contextValue: DialogContext = {
     dialogs,
+    waitingChat: dialogs.length === 0,
     resetDialogs: () => {
       setDialogs([]);
     },
