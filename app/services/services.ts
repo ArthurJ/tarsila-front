@@ -1,4 +1,4 @@
-const url = "https://tarsila.audiofusion.com.br";
+const url = "https://tarsila-api-304807196567.southamerica-east1.run.app";
 const headers = { "Content-Type": "application/json" };
 
 export enum MSG_TYPES {
